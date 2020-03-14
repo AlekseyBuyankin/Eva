@@ -3,8 +3,7 @@ from extensionsFuncs import *
 
 def firstFit(self, currentParal, flag):
     if not self.allDict['matrixXY'].any():
-        self.allDict['matrixXY'] = np.zeros((self.allDict['xBorder'],
-                                             self.allDict['yBorder']))
+        createMatrix(self)
 
     if currentParal < len(self.allDict['parals']):
         print('currentParal:', currentParal, self.allParals[self.allDict['parals'][currentParal]])

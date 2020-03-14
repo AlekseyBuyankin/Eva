@@ -1,0 +1,1 @@
+pyuic5 mainMenu.ui -o mainMenu.py

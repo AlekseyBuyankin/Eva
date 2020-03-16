@@ -79,7 +79,7 @@ class mainMenu(QtWidgets.QMainWindow):
             extrafuncs.addAllText(self)
 
     def stepBackButton(self):
-        if self.allDict['parals']:
+        if self.allDict['parals']:  # если объекты есть на плоскости
             print('currentParal =', self.allDict['currentParal'])
             if self.allDict['currentParal'] > 0:
                 if self.allDict['currentParal'] != len(self.allDict['placedParals']):

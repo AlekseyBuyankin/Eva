@@ -169,7 +169,7 @@ def population(self, k):
     ]
 
     for l, w, h in parals:
-        makeParallelepiped(self, k, l, w, 2)
+        makeParallelepiped(self, k, l, w, h)
     # makeParallelepiped(self, k, 0, 1, 2)
     # makeParallelepiped(self, k, 2, 0, 2)
     # makeParallelepiped(self, k, 1, 3, 2)
@@ -178,9 +178,3 @@ def population(self, k):
     # makeParallelepiped(self, k, 3, 1, 2)
 
 
-def stepForward(self):
-    pass
-
-
-def stepBack(self):
-    pass

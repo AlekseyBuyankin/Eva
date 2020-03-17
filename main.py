@@ -6,7 +6,7 @@ import numpy as np
 import styles
 import funcs
 import extrafuncs
-import fits
+import fits2
 
 
 class movenment(QtWidgets.QMainWindow):
@@ -116,17 +116,17 @@ class mainMenu(QtWidgets.QMainWindow):
     def stepForwardButton(self):
         if not self.allDict['parals']:
             funcs.population(self, self.allDict['k'])
-            fits.firstFit(self, self.allDict['currentParal'], True)
+            fits2.firstFit(self, self.allDict['currentParal'], True)
         else:
-            fits.firstFit(self, self.allDict['currentParal'], True)
+            fits2.firstFit(self, self.allDict['currentParal'], True)
 
     def startButton(self):
         if not self.allDict['parals']:
             # funcs.randPopulation(self, self.allDict['k'], 25)
             funcs.population(self, self.allDict['k'])
-            fits.firstFit(self, 0, False)
+            fits2.firstFit(self, 0, False)
         else:
-            fits.firstFit(self, self.allDict['currentParal'], False)
+            fits2.firstFit(self, self.allDict['currentParal'], False)
 
     # def update(self):
     #     w = self.ui.gl

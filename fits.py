@@ -1,21 +1,19 @@
 import numpy as np
 from extensionsFuncs import *
 
-
-# Алгоритм упаковки First Fit - укладывает объект в первое попавшееся свободное место
 def firstFit(self, currentParal, flag):
     if not self.allDict['matrixXY'].any():
-        createMatrixes(self)
+        self.allDict['matrixXY'] = np.zeros((self.allDict['xBorder'],
+                                             self.allDict['yBorder']))
 
     if currentParal < len(self.allDict['parals']):
         print('currentParal:', currentParal, self.allParals[self.allDict['parals'][currentParal]])
     else:
         print('currentParal:', currentParal)
-    recFF(self, currentParal, flag)
+    recMatrixFF(self, currentParal, flag)
 
 
-# Рекурсивная вставка объекта в свободную область
-def recFF(self, currentParal, flag):
+def recMatrixFF(self, currentParal, flag):
     window = self.ui.gl
     if currentParal < len(self.allDict['parals']):
         matrixXY = np.array(self.allDict['matrixXY'])
@@ -23,7 +21,6 @@ def recFF(self, currentParal, flag):
         paral = self.allDict['parals'][currentParal]
         (paralX, paralY, paralZ) = self.allParals[paral]
 
-        # если в области еще нет объектов
         if matrixXY.sum() == 0:
             window.addItem(paral)
             self.allDict['placedParals'].append(paral)
@@ -39,19 +36,17 @@ def recFF(self, currentParal, flag):
             currentParal += 1
             self.allDict['currentParal'] = currentParal
             if not flag:
-                recFF(self, currentParal, flag)
+                recMatrixFF(self, currentParal, flag)
 
-        # если в области есть объекты, то нужно искать для него место
         else:
             recFindPlace(self, currentParal, 0, 0)
 
             currentParal += 1
             self.allDict['currentParal'] = currentParal
             if not flag:
-                recFF(self, currentParal, flag)
+                recMatrixFF(self, currentParal, flag)
 
 
-# Рекурсивный поиск свободного места во всех слоях рассматриваемой области
 def recFindPlace(self, currentParal, beginI, beginJ):
     paral = self.allDict['parals'][currentParal]
     (paralX, paralY, paralZ) = self.allParals[paral]
@@ -103,9 +98,10 @@ def recFindPlace(self, currentParal, beginI, beginJ):
             if col.sum() == 0:
                 counter += 1
 
-            # если значение счетчика равно длине объекта по Y
+            # если значение счесчика равно длине объекта по Y
+            window = self.ui.gl
+            # если на свободные ячейки проверены не все уровни по высоте объекта, то проверяем дальше
             if counter == paralY:
-                window = self.ui.gl
                 self.allDict['allTranslations'][paral] = (i, currentJ, 0)
                 paral.translate(i, currentJ, 0)
                 window.addItem(paral)

@@ -116,17 +116,17 @@ class mainMenu(QtWidgets.QMainWindow):
     def stepForwardButton(self):
         if not self.allDict['parals']:
             funcs.population(self, self.allDict['k'])
-            fits2.firstFit(self, self.allDict['currentParal'], True)
+            fits2.firstFit(self, True)
         else:
-            fits2.firstFit(self, self.allDict['currentParal'], True)
+            fits2.firstFit(self, True)
 
     def startButton(self):
         if not self.allDict['parals']:
             # funcs.randPopulation(self, self.allDict['k'], 25)
             funcs.population(self, self.allDict['k'])
-            fits2.firstFit(self, 0, False)
+            fits2.firstFit(self, False)
         else:
-            fits2.firstFit(self, self.allDict['currentParal'], False)
+            fits2.firstFit(self, False)
 
     # def update(self):
     #     w = self.ui.gl

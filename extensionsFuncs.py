@@ -12,27 +12,33 @@ def createMatrix(self):
                                          self.allDict['yBorder']))
 
 
+# проверить свободное место только в нижнем слое
 def isAvailableY(self, rowIndex, colIndex, paralX, paralY):
-    for x in range(colIndex, colIndex + paralX):
-        for y in range():
-            pass
+    matrixXY = self.allDict['matrices'][0]
+
+    for x in range(rowIndex, rowIndex + paralX):
+        for y in range(colIndex, colIndex + paralY):
+            if matrixXY[x, y] == 1:
+                return False
+
+    return True
 
 
+# проверить свободное место во всех слоях
+def isAvailableXYZ(self, rowIndex, colIndex, beginZ):
+    currentParal = self.allDict['currentParal']
+    paral = self.allDict['parals'][currentParal]
+    (paralX, paralY, paralZ) = self.allParals[paral]
+    matrices = self.allDict['matrices'][beginZ: beginZ + paralZ]
 
-    pass
-
-
-# проверить свободное место в верхних слоях
-def isAvailableZ(self, savedZ, paralZ, fromI, toI, fromJ, toJ):
-    matrices = self.allDict['matrices'][savedZ + 1: savedZ + 1 + paralZ]
-
-    # print('Поиск в верхних слоях:')
-    # writeToAllMatrices(self, savedZ + 1, paralZ, fromI, toI, fromJ, toJ)
+    print('rowIndex:', rowIndex, 'paralX:', paralX, 'colIndex:', colIndex, 'paralY:', paralY)
 
     for numMatrix in range(len(matrices)):
         matrixXY = self.allDict['matrixXY']
-        for x in range(fromI, toI):
-            for y in range(fromJ, toJ):
+        # print('Поиск в слое', str(numMatrix) + ':')
+        # printMatrix(matrixXY)
+        for x in range(rowIndex, rowIndex + paralX):
+            for y in range(colIndex, colIndex + paralY):
                 if matrixXY[x, y] == 1:
                     return False
 
@@ -40,31 +46,52 @@ def isAvailableZ(self, savedZ, paralZ, fromI, toI, fromJ, toJ):
 
 
 # записать данные об объекте в матрицы всех занимаемых им слоев
-def writeToAllMatrices(self, savedZ, paralZ, fromI, toI, fromJ, toJ):
-    matrices = self.allDict['matrices'][savedZ: savedZ + paralZ]
+def writeToAllMatrices(self, rowIndex, colIndex, beginZ):
+    currentParal = self.allDict['currentParal']
+    paral = self.allDict['parals'][currentParal]
+    (paralX, paralY, paralZ) = self.allParals[paral]
+
+    matrices = np.array(self.allDict['matrices'][beginZ: beginZ + paralZ])
 
     for numMatrix in range(len(matrices)):
-        for x in range(fromI, toI):
-            for y in range(fromJ, toJ):
-                self.allDict['matrixXY'][x, y] = 1
-        self.allDict['matrices'][numMatrix] = self.allDict['matrixXY']
+        matrixXY = np.array(matrices[numMatrix])
+
+        for x in range(rowIndex, rowIndex + paralX):
+            for y in range(colIndex, colIndex + paralY):
+                matrixXY[x, y] = currentParal + 1
+        self.allDict['matrices'][beginZ + numMatrix] = np.array(matrixXY)
+        self.allDict['matrixXY'] = np.array(matrixXY)
 
 
-def printMatricesToString(self, savedZ, paralZ):
+def printAllMatrices(self):
+    printMatricesToString(self, 0, len(self.allDict['matrices']))
+    print()
+
+
+def printMatricesToString(self, beginZ, paralZ):
     s = ''
 
-    matrices = self.allDict['matrices'][savedZ: savedZ + paralZ]
+    matrices = self.allDict['matrices'][beginZ: beginZ + paralZ]
 
     for row in range(len(matrices[0])):
         for numMatrix in range(len(matrices)):
             s += str(matrices[numMatrix][row]) + '  '
-        s += '\n'
+        if row != len(matrices[0]) - 1:
+            s += '\n'
 
     print(s)
+
+
+def printMatrix(matrixXY: np.array):
+    print('Матрица XY:')
+    for row in matrixXY:
+        print(row)
+
+    print()
 
 
 def writeFirstParal(self):
     paral = self.allDict['parals'][0]
     (_, _, paralZ) = self.allParals[paral]
 
-    writeToAllMatrices(self, 0, paralZ, 0, 0, 0, 0)
+    writeToAllMatrices(self, 0, paralZ)

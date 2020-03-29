@@ -10,11 +10,9 @@ def firstFit(self, flag):
     if currentParal < len(self.allDict['parals']):
         print('\nТекущий объект:', currentParal, 'с параметрами: ',
               self.allParals[self.allDict['parals'][currentParal]])
+        recFF(self, flag)
     else:
-        print('\nТекущий объект:', currentParal)
-
-    recFF(self, flag)
-    pass
+        print('Объекты кончились')
 
 
 def recFF(self, flag):
@@ -25,14 +23,15 @@ def recFF(self, flag):
         (paralX, paralY, paralZ) = self.allParals[paral]
         window = self.ui.gl
         window.addItem(paral)
+        self.allDict['placedParals'].append(paral)
         writeToAllMatrices(self, 0, 0, 0)
-        self.allDict['matrixOfMatrices'].append(self.allDict['matrices'])
+        self.allDict['matrixOfMatrices'].append(list(self.allDict['matrices']))
         self.allDict['currentParal'] += 1
 
         printMatricesToString(self, 0, paralZ)
 
         if not flag:
-            if not currentParal < len(self.allDict['paral']):
+            if not currentParal < len(self.allDict['parals']):
                 return False
             else:
                 recFF(self, flag)
@@ -41,7 +40,7 @@ def recFF(self, flag):
         recFindPlace(self, 0)
 
         if not flag:
-            if not currentParal < len(self.allDict['paral']):
+            if not currentParal < len(self.allDict['parals']):
                 return False
             else:
                 recFF(self, flag)
@@ -51,10 +50,9 @@ def recFindPlace(self, beginZ):
     matrices = self.allDict['matrices']
     currentParal = self.allDict['currentParal']
 
-    print('Слой:', beginZ)
-    print('Матрицы до:')
-    printAllMatrices(self)
-    print()
+    # print('Слой #' + str(beginZ))
+    # print('Матрицы до:')
+    # printAllMatrices(self)
 
     if beginZ < len(matrices) and currentParal < len(self.allDict['parals']):
         # переменные
@@ -93,11 +91,12 @@ def recFindPlace(self, beginZ):
                 else:
                     return False
 
-            # если проверки пройдены
+            # если легкие проверки пройдены
             for colIndex in range(len(matrixXY[0])):
                 # находим свободную ячейку
                 if matrixXY[rowIndex, colIndex] == 0:
                     col = np.array(matrixXY[:, colIndex])
+                    print('Нашел свободную ячейку', 'col =', col)
 
                     # если свободных ячеек осталось меньше чем длина объекта
                     if np.count_nonzero(col[colIndex:] == 0) < paralX:
@@ -105,15 +104,17 @@ def recFindPlace(self, beginZ):
                               np.count_nonzero(col[colIndex:] == 0), '<', paralX)
                         break
 
-                    # если случается неведомая поебень
+                    # если случается неведомая фигня
                     if rowIndex + paralX > len(matrixXY[0]) or colIndex + paralY > len(matrixXY):
-                        print('Проверка 4: если случается неведомая поебень')
+                        print('Проверка 4: если случается неведомая фигня')
                         print(rowIndex, '+', paralX, '>', len(matrixXY[0]), 'and', colIndex, '+', paralY, '>',
                               len(matrixXY))
                         break
 
+                    # если свободных ячеек по Y меньше чем ширина объета
                     if np.count_nonzero(row[colIndex: colIndex + paralY] == 0) != paralY:
-                        print(row[colIndex: colIndex + paralY], np.count_nonzero(row[colIndex: colIndex + paralY] == 0),
+                        print(row[colIndex: colIndex + paralY],
+                              np.count_nonzero(row[colIndex: colIndex + paralY] == 0),
                               '!=', paralY)
                         break
 
@@ -133,7 +134,7 @@ def recFindPlace(self, beginZ):
                         printAllMatrices(self)
                         print('------------------------------------------------------------------------------')
 
-                        self.allDict['matrixOfMatrices'].append(self.allDict['matrices'])
+                        self.allDict['matrixOfMatrices'].append(list(self.allDict['matrices']))
                         self.allDict['currentParal'] += 1
 
                         return True

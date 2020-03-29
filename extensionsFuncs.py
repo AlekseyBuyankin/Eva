@@ -16,8 +16,8 @@ def createMatrix(self):
 def isAvailableY(self, rowIndex, colIndex, paralX, paralY):
     matrixXY = self.allDict['matrices'][0]
 
-    for x in range(rowIndex, rowIndex + paralX):
-        for y in range(colIndex, colIndex + paralY):
+    for x in range(rowIndex, rowIndex + paralX + 1):
+        for y in range(colIndex, colIndex + paralY + 1):
             if matrixXY[x, y] == 1:
                 return False
 
@@ -31,17 +31,19 @@ def isAvailableXYZ(self, rowIndex, colIndex, beginZ):
     (paralX, paralY, paralZ) = self.allParals[paral]
     matrices = self.allDict['matrices'][beginZ: beginZ + paralZ]
 
+    print('Проверяем свободное место по X, Y, Z')
     print('rowIndex:', rowIndex, 'paralX:', paralX, 'colIndex:', colIndex, 'paralY:', paralY)
+    print()
+    print(matrices)
+    print()
 
-    for numMatrix in range(len(matrices)):
-        matrixXY = self.allDict['matrixXY']
-        # print('Поиск в слое', str(numMatrix) + ':')
-        # printMatrix(matrixXY)
+    for matrixXY in matrices:
         for x in range(rowIndex, rowIndex + paralX):
             for y in range(colIndex, colIndex + paralY):
-                if matrixXY[x, y] == 1:
+                if matrixXY[x, y] != 0:
+                    print('Место занято в ячейке', x, y, print(matrixXY[x, y]))
                     return False
-
+    print('Место свободно')
     return True
 
 
@@ -73,13 +75,14 @@ def printMatricesToString(self, beginZ, paralZ):
 
     matrices = self.allDict['matrices'][beginZ: beginZ + paralZ]
 
-    for row in range(len(matrices[0])):
-        for numMatrix in range(len(matrices)):
-            s += str(matrices[numMatrix][row]) + '  '
-        if row != len(matrices[0]) - 1:
-            s += '\n'
+    if len(matrices) > 0:
+        for row in range(len(matrices[0])):
+            for numMatrix in range(len(matrices)):
+                s += str(matrices[numMatrix][row]) + '  '
+            if row != len(matrices[0]) - 1:
+                s += '\n'
 
-    print(s)
+        print(s)
 
 
 def printMatrix(matrixXY: np.array):
@@ -89,9 +92,3 @@ def printMatrix(matrixXY: np.array):
 
     print()
 
-
-def writeFirstParal(self):
-    paral = self.allDict['parals'][0]
-    (_, _, paralZ) = self.allParals[paral]
-
-    writeToAllMatrices(self, 0, paralZ)

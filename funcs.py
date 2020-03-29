@@ -1,7 +1,7 @@
 import pyqtgraph.opengl as gl
 import extrafuncs
 import numpy as np
-from extrafuncs import fromRGB, rainbowColors
+from extrafuncs import rainbowColors
 from random import randint
 
 
@@ -132,10 +132,11 @@ def makeParallelepiped(self, k, l, w, h):
                       [3, 6, 5], [3, 7, 5]])
 
     r, g, b = rainbowColors()
-    op = .2
+    op = .15
     colors = np.array([[r, g, b, op] for _ in range(12)])
     m1 = gl.GLMeshItem(vertexes=verts, faces=faces, drawFaces=True, drawEdges=True, faceColors=colors, smooth=False,
-                       edgeColor=(r, g, b, op))
+                       edgeColor=(r, g, b, op), shader='balloon')
+
     m1.setGLOptions('additive')
     self.allDict['parals'].append(m1)
     self.allParals[m1] = (l + k, w + k, h + k)
@@ -166,15 +167,17 @@ def population(self, k):
         (1, 0, 0),
         (0, 2, 1),
         (1, 1, 0),
+        (0, 1, 1),
+        (1, 2, 1),
+        (1, 1, 2),
+        (1, 2, 1),
+        (2, 2, 1),
+        (2, 2, 1),
+        (0, 1, 1),
+        (1, 0, 0),
+        (0, 2, 1),
+        (1, 1, 0),
     ]
 
     for l, w, h in parals:
         makeParallelepiped(self, k, l, w, h)
-    # makeParallelepiped(self, k, 0, 1, 2)
-    # makeParallelepiped(self, k, 2, 0, 2)
-    # makeParallelepiped(self, k, 1, 3, 2)
-    # makeParallelepiped(self, k, 2, 1, 2)
-    # makeParallelepiped(self, k, 2, 3, 2)
-    # makeParallelepiped(self, k, 3, 1, 2)
-
-

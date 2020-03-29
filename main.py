@@ -1,4 +1,4 @@
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5 import QtWidgets
 from mainMenu import Ui_MainWindow
 import sys
 import numpy as np
@@ -11,30 +11,32 @@ import fits2
 
 class movenment(QtWidgets.QMainWindow):
     def __init__(self):
-        pass
+        super().__init__()
 
     def center(self):
         desktop = QtWidgets.QDesktopWidget()
         rect = desktop.availableGeometry(desktop.primaryScreen())  # прямоугольник с размерами экрана
         center = rect.center()
-        center.setX(center.x() - (self.width() / 2))
-        center.setY(center.y() - (self.height() / 2))
+        center.setX(int(center.x() - (self.width() / 2)))
+        center.setY(int(center.y() - (self.height() / 2)))
         self.move(center)
 
     def right(self):
         desktop = QtWidgets.QDesktopWidget()
         rect = desktop.availableGeometry(desktop.primaryScreen())  # прямоугольник с размерами экрана
         right = rect.center()
-        right.setX(right.x() - (self.width() / 2) + ((self.width() * 3) / 2) + (self.width() / 3) + (self.width() / 18))
-        right.setY(right.y() - (self.height() / 2))
+        right.setX(
+            int(right.x() - (self.width() / 2) + ((self.width() * 3) / 2) + (self.width() / 3) + (self.width() / 18)))
+        right.setY(int(right.y() - (self.height() / 2)))
         self.move(right)
 
     def left(self):
         desktop = QtWidgets.QDesktopWidget()
         rect = desktop.availableGeometry(desktop.primaryScreen())  # прямоугольник с размерами экрана
         right = rect.center()
-        right.setX(right.x() - (self.width() / 2) - ((self.width() * 3) / 2) - (self.width() / 3) - (self.width() / 18))
-        right.setY(right.y() - (self.height() / 2))
+        right.setX(
+            int(right.x() - (self.width() / 2) - ((self.width() * 3) / 2) - (self.width() / 3) - (self.width() / 18)))
+        right.setY(int(right.y() - (self.height() / 2)))
         self.move(right)
 
 
@@ -80,7 +82,6 @@ class mainMenu(QtWidgets.QMainWindow):
 
     def stepBackButton(self):
         if self.allDict['parals']:  # если объекты есть на плоскости
-            print('currentParal =', self.allDict['currentParal'])
             if self.allDict['currentParal'] > 0:
                 if self.allDict['currentParal'] != len(self.allDict['placedParals']):
                     self.allDict['currentParal'] = len(self.allDict['placedParals']) - 1
@@ -88,9 +89,6 @@ class mainMenu(QtWidgets.QMainWindow):
                     self.allDict['currentParal'] -= 1
                 w = self.ui.gl
 
-                print('currentParal =', self.allDict['currentParal'])
-                print('placedParals:', len(self.allDict['placedParals']), 'currentParal:', self.allDict['currentParal'],
-                      self.allDict['placedParals'])
                 w.removeItem(self.allDict['placedParals'][self.allDict['currentParal']])
 
                 if len(self.allDict['placedParals']) > 1:
@@ -99,19 +97,10 @@ class mainMenu(QtWidgets.QMainWindow):
                     self.allDict['placedParals'][-1].translate(-i, -currentJ, -z)
 
                 self.allDict['placedParals'].pop()
-
-                print('placedParals:', len(self.allDict['placedParals']), 'currentParal:', self.allDict['currentParal'],
-                      self.allDict['placedParals'])
-
                 self.allDict['matrixOfMatrices'].pop()
-                self.allDict['matrixXY'] = np.array([]) if len(self.allDict['matrixOfMatrices']) == 0 else \
-                    np.array(self.allDict['matrixOfMatrices'][-1])
 
-                print(self.allDict['matrixXY'], '\n')
-
-                pass
-
-        pass
+                self.allDict['matrices'] = [] if len(self.allDict['matrixOfMatrices']) == 0 else \
+                    self.allDict['matrixOfMatrices'][-1]
 
     def stepForwardButton(self):
         if not self.allDict['parals']:

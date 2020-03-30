@@ -2,24 +2,38 @@ from extensionsFuncs import *
 
 
 def firstFit(self, flag):
-    currentParal = self.allDict['currentParal']
+    current_paral = self.allDict['currentParal']
 
     if not self.allDict['matrices']:
         createMatrices(self)
 
-    if currentParal < len(self.allDict['parals']):
-        print('\nТекущий объект:', currentParal, 'с параметрами: ',
-              self.allParals[self.allDict['parals'][currentParal]])
+    if current_paral < len(self.allDict['parals']):
+        print('\nТекущий объект:', current_paral, 'с параметрами: ',
+              self.allParals[self.allDict['parals'][current_paral]])
+        recFF(self, flag)
+    else:
+        print('Объекты кончились')
+
+
+def firstFitDecreasing(self, flag):
+    current_paral = self.allDict['currentParal']
+
+    if not self.allDict['matrices']:
+        createMatrices(self)
+
+    if current_paral < len(self.allDict['parals']):
+        print('\nТекущий объект:', current_paral, 'с параметрами: ',
+              self.allParals[self.allDict['parals'][current_paral]])
         recFF(self, flag)
     else:
         print('Объекты кончились')
 
 
 def recFF(self, flag):
-    currentParal = self.allDict['currentParal']
+    current_paral = self.allDict['currentParal']
     # если объект первый
-    if currentParal == 0:
-        paral = self.allDict['parals'][currentParal]
+    if current_paral == 0:
+        paral = self.allDict['parals'][current_paral]
         (paralX, paralY, paralZ) = self.allParals[paral]
         window = self.ui.gl
         window.addItem(paral)
@@ -31,7 +45,7 @@ def recFF(self, flag):
         printMatricesToString(self, 0, paralZ)
 
         if not flag:
-            if not currentParal < len(self.allDict['parals']):
+            if not current_paral < len(self.allDict['parals']):
                 return False
             else:
                 recFF(self, flag)
@@ -40,7 +54,7 @@ def recFF(self, flag):
         recFindPlace(self, 0)
 
         if not flag:
-            if not currentParal < len(self.allDict['parals']):
+            if not current_paral < len(self.allDict['parals']):
                 return False
             else:
                 recFF(self, flag)
@@ -48,15 +62,15 @@ def recFF(self, flag):
 
 def recFindPlace(self, beginZ):
     matrices = self.allDict['matrices']
-    currentParal = self.allDict['currentParal']
+    current_paral = self.allDict['currentParal']
 
     # print('Слой #' + str(beginZ))
     # print('Матрицы до:')
     # printAllMatrices(self)
 
-    if beginZ < len(matrices) and currentParal < len(self.allDict['parals']):
+    if beginZ < len(matrices) and current_paral < len(self.allDict['parals']):
         # переменные
-        paral = self.allDict['parals'][currentParal]
+        paral = self.allDict['parals'][current_paral]
         (paralX, paralY, paralZ) = self.allParals[paral]
         matrixXY = matrices[beginZ]
 
@@ -64,6 +78,7 @@ def recFindPlace(self, beginZ):
         # по высоте
         if paralZ > len(matrices) - beginZ:
             print('\nПроверка по высоте: нет места для объекта:', (paralX, paralY, paralZ))
+            self.allDict['currentParal'] += 1
             return False
 
         # по количеству оставшегося места в matrixXY

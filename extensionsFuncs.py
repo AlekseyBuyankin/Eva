@@ -13,11 +13,11 @@ def createMatrix(self):
 
 
 # проверить свободное место только в нижнем слое
-def isAvailableY(self, rowIndex, colIndex, paralX, paralY):
+def isAvailableY(self, row_index, col_index, paralX, paralY):
     matrixXY = self.allDict['matrices'][0]
 
-    for x in range(rowIndex, rowIndex + paralX + 1):
-        for y in range(colIndex, colIndex + paralY + 1):
+    for x in range(row_index, row_index + paralX + 1):
+        for y in range(col_index, col_index + paralY + 1):
             if matrixXY[x, y] == 1:
                 return False
 
@@ -25,21 +25,21 @@ def isAvailableY(self, rowIndex, colIndex, paralX, paralY):
 
 
 # проверить свободное место во всех слоях
-def isAvailableXYZ(self, rowIndex, colIndex, beginZ):
-    currentParal = self.allDict['currentParal']
-    paral = self.allDict['parals'][currentParal]
+def isAvailableXYZ(self, row_index, col_index, beginZ):
+    current_paral = self.allDict['currentParal']
+    paral = self.allDict['parals'][current_paral]
     (paralX, paralY, paralZ) = self.allParals[paral]
     matrices = self.allDict['matrices'][beginZ: beginZ + paralZ]
 
     print('Проверяем свободное место по X, Y, Z')
-    print('rowIndex:', rowIndex, 'paralX:', paralX, 'colIndex:', colIndex, 'paralY:', paralY)
+    print('row_index:', row_index, 'paralX:', paralX, 'col_index:', col_index, 'paralY:', paralY)
     print()
     print(matrices)
     print()
 
     for matrixXY in matrices:
-        for x in range(rowIndex, rowIndex + paralX):
-            for y in range(colIndex, colIndex + paralY):
+        for x in range(row_index, row_index + paralX):
+            for y in range(col_index, col_index + paralY):
                 if matrixXY[x, y] != 0:
                     print('Место занято в ячейке', x, y, print(matrixXY[x, y]))
                     return False
@@ -48,9 +48,9 @@ def isAvailableXYZ(self, rowIndex, colIndex, beginZ):
 
 
 # записать данные об объекте в матрицы всех занимаемых им слоев
-def writeToAllMatrices(self, rowIndex, colIndex, beginZ):
-    currentParal = self.allDict['currentParal']
-    paral = self.allDict['parals'][currentParal]
+def writeToAllMatrices(self, row_index, col_index, beginZ):
+    current_paral = self.allDict['currentParal']
+    paral = self.allDict['parals'][current_paral]
     (paralX, paralY, paralZ) = self.allParals[paral]
 
     matrices = np.array(self.allDict['matrices'][beginZ: beginZ + paralZ])
@@ -58,9 +58,9 @@ def writeToAllMatrices(self, rowIndex, colIndex, beginZ):
     for numMatrix in range(len(matrices)):
         matrixXY = np.array(matrices[numMatrix])
 
-        for x in range(rowIndex, rowIndex + paralX):
-            for y in range(colIndex, colIndex + paralY):
-                matrixXY[x, y] = currentParal + 1
+        for x in range(row_index, row_index + paralX):
+            for y in range(col_index, col_index + paralY):
+                matrixXY[x, y] = current_paral + 1
         self.allDict['matrices'][beginZ + numMatrix] = np.array(matrixXY)
         self.allDict['matrixXY'] = np.array(matrixXY)
 
@@ -92,3 +92,14 @@ def printMatrix(matrixXY: np.array):
 
     print()
 
+
+def preparingForFFD(self):
+    paral_dict = [(paral, self.allParals[paral][0], self.allParals[paral][1], self.allParals[paral][2],
+                   self.allParals[paral][0] * self.allParals[paral][1] * self.allParals[paral][2]) for paral in
+                  self.allDict['parals']]
+
+    paral_dict = list(sorted(paral_dict, key=lambda k: k[4], reverse=True))
+    self.allDict['parals'] = [paral[0] for paral in paral_dict]
+    self.allDict['paral_dict'] = paral_dict
+
+    print('\n'.join(str(e) for e in paral_dict))

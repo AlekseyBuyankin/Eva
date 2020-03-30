@@ -7,6 +7,7 @@ import styles
 import funcs
 import extrafuncs
 import fits2
+from extensionsFuncs import preparingForFFD
 
 
 class movenment(QtWidgets.QMainWindow):
@@ -64,16 +65,6 @@ class mainMenu(QtWidgets.QMainWindow):
         # self.allDict['yBorder'] = 10
         # self.allDict['zBorder'] = 10
 
-    # def button1(self):
-    #     extradefs.onButtonClick(self, self.allDict['buttons'], self.ui.button1)
-
-    # def startButton(self):
-    #     extradefs.onButtonClick(self, self.allDict['otherButtons'], self.ui.startButton)
-    #
-    #     self.timer = QtCore.QTimer()
-    #     self.timer.timeout.connect(self.update)
-    #     self.timer.start(100)
-
     def textButton(self):
         if self.allDict['textBox']:
             extrafuncs.removeText(self)
@@ -105,46 +96,19 @@ class mainMenu(QtWidgets.QMainWindow):
     def stepForwardButton(self):
         if not self.allDict['parals']:
             funcs.population(self, self.allDict['k'])
-            fits2.firstFit(self, True)
+            preparingForFFD(self)
+            fits2.firstFitDecreasing(self, True)
         else:
-            fits2.firstFit(self, True)
+            fits2.firstFitDecreasing(self, True)
 
     def startButton(self):
         if not self.allDict['parals']:
             # funcs.randPopulation(self, self.allDict['k'], 25)
             funcs.population(self, self.allDict['k'])
-            fits2.firstFit(self, False)
+            preparingForFFD(self)
+            fits2.firstFitDecreasing(self, False)
         else:
-            fits2.firstFit(self, False)
-
-    # def update(self):
-    #     w = self.ui.gl
-    #     xs = self.allDict['x']  # сколько раз можно нарисовать точки
-    #     k = self.allDict['counterForUpdater']  # количество повторений процедуры update (сколько точек было нарисовано)
-    #
-    #     if k == 0 and self.allDict['dots']:
-    #         w.removeItem(self.allDict['dots'][0])
-    #         self.allDict['dots'] = []
-    #
-    #     if not self.allDict['dots']:
-    #         m3 = defs.dots(self)
-    #
-    #         self.allDict['dots'].append(m3)
-    #         self.allDict['counterForUpdater'] += 1
-    #     else:
-    #         print('k =', k, 'len(xs) =', len(xs))
-    #
-    #         if k < len(xs):
-    #             w.removeItem(self.allDict['dots'][0])
-    #
-    #             m3 = defs.dots(self)
-    #
-    #             self.allDict['dots'][0] = m3
-    #             self.allDict['counterForUpdater'] += 1
-    #
-    #         else:
-    #             self.timer.stop()
-    #             self.allDict['counterForUpdater'] = 0
+            fits2.firstFitDecreasing(self, False)
 
 
 if __name__ == '__main__':
@@ -156,6 +120,7 @@ if __name__ == '__main__':
         'zBorder': 10,
 
         'parals': [],
+        'paral_dict': [],
         'currentParal': 0,
         'placedParals': [],
 

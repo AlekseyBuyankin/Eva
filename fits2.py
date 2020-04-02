@@ -8,11 +8,12 @@ def firstFit(self, flag):
         createMatrices(self)
 
     if current_paral < len(self.allDict['parals']):
-        print('\nТекущий объект:', current_paral, 'с параметрами: ',
-              self.allParals[self.allDict['parals'][current_paral]])
+        # print('\nТекущий объект:', current_paral, 'с параметрами: ',
+        #       self.allParals[self.allDict['parals'][current_paral]])
         recFF(self, flag)
     else:
-        print('Объекты кончились')
+        # print('Объекты кончились')
+        pass
 
 
 def firstFitDecreasing(self, flag):
@@ -22,11 +23,12 @@ def firstFitDecreasing(self, flag):
         createMatrices(self)
 
     if current_paral < len(self.allDict['parals']):
-        print('\nТекущий объект:', current_paral, 'с параметрами: ',
-              self.allParals[self.allDict['parals'][current_paral]])
+        # print('\nТекущий объект:', current_paral, 'с параметрами: ',
+        #       self.allParals[self.allDict['parals'][current_paral]])
         recFF(self, flag)
     else:
-        print('Объекты кончились')
+        # print('Объекты кончились')
+        pass
 
 
 def recFF(self, flag):
@@ -40,9 +42,11 @@ def recFF(self, flag):
         self.allDict['placedParals'].append(paral)
         writeToAllMatrices(self, 0, 0, 0)
         self.allDict['matrixOfMatrices'].append(list(self.allDict['matrices']))
+        # print('Объект', current_paral, (paralX, paralY, paralZ), 'упакован')
+
         self.allDict['currentParal'] += 1
 
-        printMatricesToString(self, 0, paralZ)
+        # printMatricesToString(self, 0, paralZ)
 
         if not flag:
             if not current_paral < len(self.allDict['parals']):
@@ -77,30 +81,31 @@ def recFindPlace(self, beginZ):
         # проверяем легкими проверками на свободное место
         # по высоте
         if paralZ > len(matrices) - beginZ:
-            print('\nПроверка по высоте: нет места для объекта:', (paralX, paralY, paralZ))
+            # print('\nПроверка по высоте: нет места для объекта:', (paralX, paralY, paralZ))
+            # print('Объект', current_paral, (paralX, paralY, paralZ), 'не был упакован')
             self.allDict['currentParal'] += 1
             return False
 
         # по количеству оставшегося места в matrixXY
         if np.count_nonzero(matrixXY == 0) < paralX * paralY:
-            print('Проверка по количеству оставшегося места в matrixXY\n')
+            # print('Проверка по количеству оставшегося места в matrixXY\n')
             if recFindPlace(self, beginZ + 1):
                 return True
             else:
                 return False
 
         for rowIndex in range(len(matrixXY)):
-            print('rowIndex:', rowIndex, '\n')
+            # print('rowIndex:', rowIndex, '\n')
             row = np.array(matrixXY[rowIndex])
 
             # по свободному месту в ряду по X (если свободных ячеек меньше чем длина объекта)
             if np.count_nonzero(row == 0) < paralX:
-                print('Проверка 1: по свободному месту в ряду по X', np.count_nonzero(row == 0), '<', paralX, '\n')
+                # print('Проверка 1: по свободному месту в ряду по X', np.count_nonzero(row == 0), '<', paralX, '\n')
                 continue
 
             # если объект не вместится по Y
             if len(matrixXY) - rowIndex < paralY:
-                print('Проверка 2: если объект не вместится по Y', len(matrixXY), '-', rowIndex, '<', paralY, '\n')
+                # print('Проверка 2: если объект не вместится по Y', len(matrixXY), '-', rowIndex, '<', paralY, '\n')
                 if recFindPlace(self, beginZ + 1):
                     return True
                 else:
@@ -111,26 +116,26 @@ def recFindPlace(self, beginZ):
                 # находим свободную ячейку
                 if matrixXY[rowIndex, colIndex] == 0:
                     col = np.array(matrixXY[:, colIndex])
-                    print('Нашел свободную ячейку', 'col =', col)
+                    # print('Нашел свободную ячейку', 'col =', col)
 
                     # если свободных ячеек осталось меньше чем длина объекта
                     if np.count_nonzero(col[colIndex:] == 0) < paralX:
-                        print('Проверка 3: если свободных ячеек осталось меньше чем длина объекта', col[colIndex:],
-                              np.count_nonzero(col[colIndex:] == 0), '<', paralX)
+                        # print('Проверка 3: если свободных ячеек осталось меньше чем длина объекта', col[colIndex:],
+                        #       np.count_nonzero(col[colIndex:] == 0), '<', paralX)
                         break
 
                     # если случается неведомая фигня
                     if rowIndex + paralX > len(matrixXY[0]) or colIndex + paralY > len(matrixXY):
-                        print('Проверка 4: если случается неведомая фигня')
-                        print(rowIndex, '+', paralX, '>', len(matrixXY[0]), 'and', colIndex, '+', paralY, '>',
-                              len(matrixXY))
+                        # print('Проверка 4: если случается неведомая фигня')
+                        # print(rowIndex, '+', paralX, '>', len(matrixXY[0]), 'and', colIndex, '+', paralY, '>',
+                        #       len(matrixXY))
                         break
 
                     # если свободных ячеек по Y меньше чем ширина объета
                     if np.count_nonzero(row[colIndex: colIndex + paralY] == 0) != paralY:
-                        print(row[colIndex: colIndex + paralY],
-                              np.count_nonzero(row[colIndex: colIndex + paralY] == 0),
-                              '!=', paralY)
+                        # print(row[colIndex: colIndex + paralY],
+                        #       np.count_nonzero(row[colIndex: colIndex + paralY] == 0),
+                        #       '!=', paralY)
                         break
 
                     # подтверждаем или опровергаем, что в этом месте paralX, paralY,  paralZ свободных ячеек
@@ -144,17 +149,19 @@ def recFindPlace(self, beginZ):
                         # записываем данные объекта в матрицы
                         writeToAllMatrices(self, rowIndex, colIndex, beginZ)
 
-                        print('Слой:', beginZ)
-                        print('Матрицы после:')
-                        printAllMatrices(self)
-                        print('------------------------------------------------------------------------------')
+                        # print('Слой:', beginZ)
+                        # print('Матрицы после:')
+                        # printAllMatrices(self)
+                        # print('------------------------------------------------------------------------------')
+                        #
+                        # print('Объект', current_paral, (paralX, paralY, paralZ), 'упакован')
 
                         self.allDict['matrixOfMatrices'].append(list(self.allDict['matrices']))
                         self.allDict['currentParal'] += 1
 
                         return True
 
-        print('Объект не нашел свободного места на этом уровне')
+        # print('Объект не нашел свободного места на этом уровне')
         if recFindPlace(self, beginZ + 1):
             return True
         else:

@@ -7,7 +7,8 @@ import styles
 import funcs
 import extrafuncs
 import fits2
-from extensionsFuncs import preparingForFFD
+from extensionsFuncs import preparingForFF
+from genetic_algorithm import geneticAlgorithm
 
 
 class movenment(QtWidgets.QMainWindow):
@@ -60,6 +61,13 @@ class mainMenu(QtWidgets.QMainWindow):
         self.ui.stepForwardButton.clicked.connect(self.stepForwardButton)
         self.ui.startButton.clicked.connect(self.startButton)
 
+        self.allDict['maxSpace'] = self.allDict['xBorder'] * self.allDict['yBorder'] * self.allDict['zBorder']
+
+        funcs.population(self, self.allDict['k'])
+        preparingForFF(self, False)
+        geneticAlgorithm(self)
+
+
         # self.allDict['k'] = 2  # множитель размера параллелепипеда
         # self.allDict['xBorder'] = 10
         # self.allDict['yBorder'] = 10
@@ -96,7 +104,7 @@ class mainMenu(QtWidgets.QMainWindow):
     def stepForwardButton(self):
         if not self.allDict['parals']:
             funcs.population(self, self.allDict['k'])
-            preparingForFFD(self)
+            preparingForFF(self, False)
             fits2.firstFitDecreasing(self, True)
         else:
             fits2.firstFitDecreasing(self, True)
@@ -105,7 +113,7 @@ class mainMenu(QtWidgets.QMainWindow):
         if not self.allDict['parals']:
             # funcs.randPopulation(self, self.allDict['k'], 25)
             funcs.population(self, self.allDict['k'])
-            preparingForFFD(self)
+            preparingForFF(self, False)
             fits2.firstFitDecreasing(self, False)
         else:
             fits2.firstFitDecreasing(self, False)
@@ -115,9 +123,10 @@ if __name__ == '__main__':
     allDict = {
         'k': 2,
         'xl': 0, 'yw': 0, 'zh': 0,
-        'xBorder': 10,
-        'yBorder': 10,
-        'zBorder': 10,
+        'xBorder': 7,
+        'yBorder': 7,
+        'zBorder': 5,
+        'maxSpace': 0,
 
         'parals': [],
         'paral_dict': [],
@@ -129,8 +138,11 @@ if __name__ == '__main__':
 
         'matrixOfMatrices': [],
         'isBacked': False,
+        'is': 0,
 
-        'allTranslations': {}
+        'allTranslations': {},
+
+        'number_of_iteration': 1
 
     }
 
@@ -138,6 +150,6 @@ if __name__ == '__main__':
 
     app = QtWidgets.QApplication([])
     application = mainMenu(allDict, allParals)
-    application.show()
+    # application.show()
 
     sys.exit(app.exec())

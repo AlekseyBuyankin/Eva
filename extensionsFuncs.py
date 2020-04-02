@@ -31,19 +31,19 @@ def isAvailableXYZ(self, row_index, col_index, beginZ):
     (paralX, paralY, paralZ) = self.allParals[paral]
     matrices = self.allDict['matrices'][beginZ: beginZ + paralZ]
 
-    print('Проверяем свободное место по X, Y, Z')
-    print('row_index:', row_index, 'paralX:', paralX, 'col_index:', col_index, 'paralY:', paralY)
-    print()
-    print(matrices)
-    print()
+    # print('Проверяем свободное место по X, Y, Z')
+    # print('row_index:', row_index, 'paralX:', paralX, 'col_index:', col_index, 'paralY:', paralY)
+    # print()
+    # print(matrices)
+    # print()
 
     for matrixXY in matrices:
         for x in range(row_index, row_index + paralX):
             for y in range(col_index, col_index + paralY):
-                if matrixXY[x, y] != 0:
-                    print('Место занято в ячейке', x, y, print(matrixXY[x, y]))
+                if matrixXY[x, y] != 0 and matrixXY[x, y] is not None:
+                    # print('Место занято в ячейке', x, y, print(matrixXY[x, y]))
                     return False
-    print('Место свободно')
+    # print('Место свободно')
     return True
 
 
@@ -93,13 +93,14 @@ def printMatrix(matrixXY: np.array):
     print()
 
 
-def preparingForFFD(self):
-    paral_dict = [(paral, self.allParals[paral][0], self.allParals[paral][1], self.allParals[paral][2],
-                   self.allParals[paral][0] * self.allParals[paral][1] * self.allParals[paral][2]) for paral in
-                  self.allDict['parals']]
+def preparingForFF(self, isDecreasing):
+    paral_dict = list([(paral, self.allParals[paral][0], self.allParals[paral][1], self.allParals[paral][2],
+                        self.allParals[paral][0] * self.allParals[paral][1] * self.allParals[paral][2]) for paral in
+                       self.allDict['parals']])
 
-    paral_dict = list(sorted(paral_dict, key=lambda k: k[4], reverse=True))
-    self.allDict['parals'] = [paral[0] for paral in paral_dict]
-    self.allDict['paral_dict'] = paral_dict
+    if isDecreasing:
+        paral_dict = list(sorted(paral_dict, key=lambda k: k[4], reverse=True))
+    self.allDict['parals'] = list([paral[0] for paral in paral_dict])
+    self.allDict['paral_dict'] = list(paral_dict)
 
-    print('\n'.join(str(e) for e in paral_dict))
+    # print('\n'.join(str(e) for e in paral_dict))

@@ -1,5 +1,6 @@
 from fits2 import *
-from random import shuffle
+from random import shuffle, randint
+import matplotlib.pyplot as plt
 
 
 def printAll(obj):
@@ -45,14 +46,16 @@ def crossing(population, parent_number):
 
 # фитнес-функция, где целевая функция - оставшееся место. Чем меньше - тем лучше
 def fitnessFunction(self, individual: list):
-    ps = list([paral[0] for paral in individual])
+    objects = list([paral[0] for paral in individual])
     parals = []
-    for paral in self.allDict['placedParals']:
-        parals.append(individual[ps.index(paral)])
+    for paral_obj in self.allDict['placedParals']:
+        ind = list(individual)
+        parals.append(ind[objects.index(paral_obj)])
+
+    parals = [(paral[0], paral[1], paral[2], paral[3], paral[4], 0) for paral in parals]
 
     parals = [(paral[0], paral[1], paral[2], paral[3], paral[4],
-               self.allDict['maxSpace'] - sum([paral[-1] for paral in parals])) for paral in individual]
-
+               self.allDict['maxSpace'] - sum([paral[-2] for paral in parals])) for paral in individual]
     return parals
 
 
@@ -73,7 +76,7 @@ def selection(self, population, ind_number):
         ind1 = list(fitnessed_population.pop())
         ind2 = list(fitnessed_population.pop())
 
-        if ind1[0][-1] >= ind2[0][-1]:
+        if ind1[0][-1] <= ind2[0][-1]:
             selected_population.append(ind1)
         else:
             selected_population.append(ind2)
@@ -82,15 +85,17 @@ def selection(self, population, ind_number):
 
 
 # мутация
-def mutation(population):
+def mutation(population, mutation_number):
+    for individual in population:
+        if randint(0, 99) < mutation_number:
+            i = randint(0, len(individual) - 1)
+            j = i
+            while j == i:
+                j = randint(0, len(individual) - 1)
 
+            individual[i], individual[j] = individual[j], individual[i]
 
-    pass
-
-
-# супермутация
-def superMutation(self):
-    pass
+    return population
 
 
 # встряска
@@ -110,14 +115,30 @@ def firstPopulation(self, ind_number):
     return shuffled_population
 
 
-def geneticAlgorithm(self):
-    number_of_iteration = self.allDict['number_of_iteration']
-    ind_number = 5
-    crossed_number = ind_number * 2
-    population = firstPopulation(self, ind_number)
+def findMinInPopulation(population):
+    # print([individual[0][-1] for individual in population])
+    return np.min(np.array([individual[0][-1] for individual in population]))
 
-    for _ in range(number_of_iteration):
+
+def geneticAlgorithm(self):
+    number_of_iteration = self.allDict['number_of_iteration']  # количество итераций генетического алгоритма
+    ind_number = 10  # количество особей в каждой популяции
+    crossed_number = ind_number * 10  # количество особей после размножения
+    mutation_number = 10  # шанс мутации (в %)
+    population = firstPopulation(self, ind_number)  # генерация первой популяции
+
+    x = []
+    y = []
+    for i in range(number_of_iteration):
+        print('i =', i)
+        x.append(i + 1)
         crossed_population = crossing(population, crossed_number)
         selected_population = selection(self, crossed_population, ind_number)
+        population = list(mutation(selected_population, mutation_number))
+        print(findMinInPopulation(population), '\n')
+        y.append(findMinInPopulation(population))
 
-        mutation(selected_population)
+    plt.plot(x, y)
+    plt.xlabel('populations')
+    plt.ylabel('min value')
+    # plt.show()

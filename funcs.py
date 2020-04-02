@@ -167,6 +167,7 @@ def population(self, k):
         (1, 0, 0),
         (0, 2, 1),
         (1, 1, 0),
+
     ]
 
     for l, w, h in parals:

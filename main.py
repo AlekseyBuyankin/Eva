@@ -8,7 +8,7 @@ import funcs
 import extrafuncs
 import fits2
 from extensionsFuncs import preparingForFF
-from genetic_algorithm import geneticAlgorithm
+# from genetic_algorithm import geneticAlgorithm
 
 
 class movenment(QtWidgets.QMainWindow):
@@ -65,7 +65,8 @@ class mainMenu(QtWidgets.QMainWindow):
 
         funcs.population(self, self.allDict['k'])
         preparingForFF(self, False)
-        geneticAlgorithm(self)
+        fits2.firstFit(self, False)
+        # geneticAlgorithm(self)
 
 
         # self.allDict['k'] = 2  # множитель размера параллелепипеда
@@ -125,7 +126,7 @@ if __name__ == '__main__':
         'xl': 0, 'yw': 0, 'zh': 0,
         'xBorder': 7,
         'yBorder': 7,
-        'zBorder': 5,
+        'zBorder': 7,
         'maxSpace': 0,
 
         'parals': [],
@@ -142,7 +143,7 @@ if __name__ == '__main__':
 
         'allTranslations': {},
 
-        'number_of_iteration': 1
+        'number_of_iteration': 10
 
     }
 

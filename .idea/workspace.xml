@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="dbac777f-68e7-402f-965f-c4dbd4d8e2a3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fits2.py" beforeDir="false" afterPath="$PROJECT_DIR$/fits2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/funcs.py" beforeDir="false" afterPath="$PROJECT_DIR$/funcs.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/genetic_algorithm.py" beforeDir="false" afterPath="$PROJECT_DIR$/genetic_algorithm.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
@@ -15,40 +16,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="68" column="32" lean-forward="true" selection-start-line="68" selection-start-column="32" selection-end-line="68" selection-end-column="32" />
+            <state relative-caret-position="169">
+              <caret line="155" column="24" lean-forward="true" selection-start-line="155" selection-start-column="24" selection-end-line="155" selection-end-column="24" />
               <folding>
                 <element signature="e#0#27#0" expanded="true" />
-                <element signature="e#289#1518#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/genetic_algorithm.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="144" lean-forward="true" selection-start-line="144" selection-end-line="144" />
+            <state relative-caret-position="231">
+              <caret line="75" lean-forward="true" selection-start-line="75" selection-end-line="75" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
-                <element signature="e#368#1150#0" />
-                <element signature="e#1621#1944#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/funcs.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
-              <caret line="169" selection-start-line="169" selection-end-line="169" />
-              <folding>
-                <element signature="e#0#29#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -57,8 +43,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fits2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2408">
-              <caret line="33" column="22" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
+            <state relative-caret-position="-2698">
+              <caret line="10" column="60" selection-start-line="10" selection-start-column="60" selection-end-line="10" selection-end-column="60" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/funcs.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="801">
+              <caret line="165" column="18" selection-start-line="165" selection-start-column="18" selection-end-line="165" selection-end-column="18" />
+              <folding>
+                <element signature="e#0#29#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -66,8 +64,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/extensionsFuncs.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="125">
+              <caret line="99" lean-forward="true" selection-start-line="99" selection-end-line="99" />
             </state>
           </provider>
         </entry>
@@ -108,7 +106,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>recFindPlace</find>
       <find>fits</find>
       <find>fits2</find>
       <find>matrixes</find>
@@ -126,7 +123,6 @@
       <find>rowIndex</find>
       <find>colIndex</find>
       <find>'current_paral'</find>
-      <find>firstFit</find>
       <find>parals</find>
       <find>Место</find>
       <find>место</find>
@@ -137,7 +133,9 @@
       <find>numberOfIndividuals</find>
       <find>selectedPopulation</find>
       <find>crossedPopulation</find>
+      <find>allTranslations</find>
       <find>print</find>
+      <find>firstFit</find>
     </findStrings>
     <replaceStrings>
       <replace>extrafuncs</replace>
@@ -193,11 +191,11 @@
         <option value="$PROJECT_DIR$/fits.py" />
         <option value="$PROJECT_DIR$/exs/ex1.py" />
         <option value="$PROJECT_DIR$/extensionsFuncs.py" />
-        <option value="$PROJECT_DIR$/fits2.py" />
         <option value="$PROJECT_DIR$/Kirill.py" />
         <option value="$PROJECT_DIR$/funcs.py" />
-        <option value="$PROJECT_DIR$/genetic_algorithm.py" />
+        <option value="$PROJECT_DIR$/fits2.py" />
         <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/genetic_algorithm.py" />
       </list>
     </option>
   </component>
@@ -215,7 +213,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -227,6 +224,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -402,7 +400,9 @@
       <workItem from="1585399972149" duration="2362000" />
       <workItem from="1585480097920" duration="1309000" />
       <workItem from="1585589492322" duration="5143000" />
-      <workItem from="1585749809680" duration="21016000" />
+      <workItem from="1585749809680" duration="27449000" />
+      <workItem from="1585906761933" duration="1234000" />
+      <workItem from="1585908018490" duration="5950000" />
     </task>
     <task id="LOCAL-00001" summary="commit test">
       <created>1584172754645</created>
@@ -446,23 +446,30 @@
       <option name="project" value="LOCAL" />
       <updated>1585830445121</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="full GA + plot">
+      <created>1585845320193</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1585845320193</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="137767000" />
+    <option name="totallyTimeSpent" value="151384000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.117135204" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.099732265" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Concurrent Activities Diagram" order="0" weight="0.32957748" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.32957748" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.44647887" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.04225352" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4225352" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -473,12 +480,12 @@
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="12" weight="0.32957748" />
       <window_info anchor="bottom" id="Python Console" order="13" weight="0.51830983" />
-      <window_info anchor="bottom" id="Messages" order="14" weight="0.04225352" />
+      <window_info anchor="bottom" id="Messages" order="14" weight="0.38169014" />
       <window_info anchor="right" x="0" y="0" width="337" height="638" id="Documentation" order="0" side_tool="true" weight="0.24431057" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="4" visible="true" weight="0.3493976" />
+      <window_info anchor="right" id="SciView" order="4" visible="true" weight="0.14056225" />
       <window_info anchor="right" id="R Graphics" order="5" />
       <window_info anchor="right" id="R Packages" order="6" />
       <window_info anchor="right" id="Database" order="7" />
@@ -495,7 +502,8 @@
     <MESSAGE value="fits2 re-creation + some changes" />
     <MESSAGE value="stepBack, stepForward and start are working" />
     <MESSAGE value="genetic algorithm added.&#10;&#10;Crossing, selection, fitnessFunction is working well." />
-    <option name="LAST_COMMIT_MESSAGE" value="genetic algorithm added.&#10;&#10;Crossing, selection, fitnessFunction is working well." />
+    <MESSAGE value="full GA + plot" />
+    <option name="LAST_COMMIT_MESSAGE" value="full GA + plot" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
@@ -510,7 +518,7 @@
     <SUITE FILE_PATH="coverage/Eva$Kirill.coverage" NAME="Kirill Coverage Results" MODIFIED="1585768424127" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Eva$styles.coverage" NAME="styles Coverage Results" MODIFIED="1583601742400" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Eva$fits2.coverage" NAME="fits2 Coverage Results" MODIFIED="1584331515883" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Eva$main.coverage" NAME="main Coverage Results" MODIFIED="1585835773898" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Eva$main.coverage" NAME="main Coverage Results" MODIFIED="1585920854128" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Eva$funcs.coverage" NAME="funcs Coverage Results" MODIFIED="1583616892412" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Eva$fits.coverage" NAME="fits Coverage Results" MODIFIED="1583775948524" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Eva$ex1.coverage" NAME="ex1 Coverage Results" MODIFIED="1585484261347" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/exs" />
@@ -603,6 +611,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://C:/Program Files (x86)/Python37-32/Lib/random.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-104">
+          <caret line="265" lean-forward="true" selection-start-line="265" selection-end-line="265" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Kirill.py" />
+    <entry file="file://C:/Program Files (x86)/Python37-32/Lib/site-packages/numpy/core/numeric.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="537" selection-start-line="537" selection-end-line="537" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/extrafuncs.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1440">
@@ -611,27 +634,6 @@
             <element signature="e#0#31#0" expanded="true" />
             <element signature="e#1882#2562#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Program Files (x86)/Python37-32/Lib/random.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-104">
-          <caret line="265" lean-forward="true" selection-start-line="265" selection-end-line="265" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/extensionsFuncs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Kirill.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="8" column="11" lean-forward="true" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -645,10 +647,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/extensionsFuncs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="99" lean-forward="true" selection-start-line="99" selection-end-line="99" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/funcs.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="169" selection-start-line="169" selection-end-line="169" />
+        <state relative-caret-position="801">
+          <caret line="165" column="18" selection-start-line="165" selection-start-column="18" selection-end-line="165" selection-end-column="18" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
           </folding>
@@ -657,30 +666,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/fits2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2408">
-          <caret line="33" column="22" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/genetic_algorithm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="144" lean-forward="true" selection-start-line="144" selection-end-line="144" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-            <element signature="e#368#1150#0" />
-            <element signature="e#1621#1944#0" />
-          </folding>
+        <state relative-caret-position="-2698">
+          <caret line="10" column="60" selection-start-line="10" selection-start-column="60" selection-end-line="10" selection-end-column="60" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="68" column="32" lean-forward="true" selection-start-line="68" selection-start-column="32" selection-end-line="68" selection-end-column="32" />
+        <state relative-caret-position="169">
+          <caret line="155" column="24" lean-forward="true" selection-start-line="155" selection-start-column="24" selection-end-line="155" selection-end-column="24" />
           <folding>
             <element signature="e#0#27#0" expanded="true" />
-            <element signature="e#289#1518#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/genetic_algorithm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="75" lean-forward="true" selection-start-line="75" selection-end-line="75" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -36,24 +36,19 @@ def recFF(self, flag):
     # если объект первый
     if current_paral == 0:
         paral = self.allDict['parals'][current_paral]
-        (paralX, paralY, paralZ) = self.allParals[paral]
-        window = self.ui.gl
-        window.addItem(paral)
+        if self.allDict['is_show_parals']:
+            window = self.ui.gl
+            window.addItem(paral)
         self.allDict['placedParals'].append(paral)
         writeToAllMatrices(self, 0, 0, 0)
         self.allDict['matrixOfMatrices'].append(list(self.allDict['matrices']))
-        # print('Объект', current_paral, (paralX, paralY, paralZ), 'упакован')
-
         self.allDict['currentParal'] += 1
-
-        # printMatricesToString(self, 0, paralZ)
 
         if not flag:
             if not current_paral < len(self.allDict['parals']):
                 return False
             else:
                 recFF(self, flag)
-
     else:
         recFindPlace(self, 0)
 
@@ -67,10 +62,6 @@ def recFF(self, flag):
 def recFindPlace(self, beginZ):
     matrices = self.allDict['matrices']
     current_paral = self.allDict['currentParal']
-
-    # print('Слой #' + str(beginZ))
-    # print('Матрицы до:')
-    # printAllMatrices(self)
 
     if beginZ < len(matrices) and current_paral < len(self.allDict['parals']):
         # переменные
@@ -140,11 +131,12 @@ def recFindPlace(self, beginZ):
 
                     # подтверждаем или опровергаем, что в этом месте paralX, paralY,  paralZ свободных ячеек
                     if isAvailableXYZ(self, rowIndex, colIndex, beginZ):
-                        self.allDict['allTranslations'][paral] = (rowIndex, colIndex, beginZ)
-                        paral.translate(rowIndex, colIndex, beginZ)
-                        window = self.ui.gl
                         # вставляем объект на плоскость
-                        window.addItem(paral)
+                        if self.allDict['is_show_parals']:
+                            self.allDict['allTranslations'][paral] = (rowIndex, colIndex, beginZ)
+                            paral.translate(rowIndex, colIndex, beginZ)
+                            window = self.ui.gl
+                            window.addItem(paral)
                         self.allDict['placedParals'].append(paral)
                         # записываем данные объекта в матрицы
                         writeToAllMatrices(self, rowIndex, colIndex, beginZ)

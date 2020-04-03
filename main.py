@@ -2,6 +2,7 @@ from PyQt5 import QtWidgets
 from mainMenu import Ui_MainWindow
 import sys
 import numpy as np
+import matplotlib.pyplot as plt
 
 import styles
 import funcs
@@ -67,13 +68,15 @@ class mainMenu(QtWidgets.QMainWindow):
         funcs.population(self, self.allDict['k'])
         preparingForFF(self, False)
         # fits2.firstFit(self, False)
-        # x, y = geneticAlgorithm(self)
-
-        self.allDict['is_show_parals'] = False
-
-
+        x, y = geneticAlgorithm(self)
         s_a = Simulated_Annealing(self.allDict, self.allParals)
-        s_a.main()
+        x1, y1 = s_a.main()
+        plt.plot(x, y, 'b', x1, y1, 'r')
+        # plt.plot(x, y, 'b')
+        # plt.plot(x1, y1, 'r')
+        plt.xlabel('Количество популяций')
+        plt.ylabel('Значение целевой функции')
+        plt.show()
 
         # self.allDict['k'] = 2  # множитель размера параллелепипеда
         # self.allDict['xBorder'] = 10
@@ -153,7 +156,7 @@ if __name__ == '__main__':
         'crossed_number': 0,
         'selected_number': 0,
         'mutation_probability': 0,
-        'is_show_parals': True,
+        'is_show_parals': False,
         'best_individual': [],
         'best_value': .0
 

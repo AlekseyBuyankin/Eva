@@ -3,6 +3,7 @@ from genetic_algorithm import printAll, clearAll
 from fits2 import firstFit
 from math import exp
 import matplotlib.pyplot as plt
+import numpy as np
 
 
 class Simulated_Annealing:
@@ -10,10 +11,11 @@ class Simulated_Annealing:
         self.allDict = allDict
         self.allParals = allParals
 
-        self.m = 3000
-        self.Tstart = 300
+        self.Tstart = self.allDict['number_of_iteration']
+        self.m = self.Tstart * 10
         self.Tend = 0.1
         self.ind_number = 10
+        self.best_value = None
 
         self.individual = None
         self.new_individual = None
@@ -54,36 +56,51 @@ class Simulated_Annealing:
 
         x = [0]
         y = [s_a.getEnergy(self, self.individual)]
+        values = []
         for k in range(1, self.m):
             # вычисляем новую популяцию
             s_a.getNewIndividual(self)
 
-            dE = s_a.getEnergy(self, self.individual) - s_a.getEnergy(self, self.new_individual)
+            dE = s_a.getEnergy(self, self.new_individual) - s_a.getEnergy(self, self.individual)
 
             if dE <= 0:
                 self.individual = list(self.new_individual)
             else:
-                if random() <= exp(-dE / t):
+                p = random()
+                # print(p, exp(-dE / t))
+                if p <= exp(-dE / t):
                     self.individual = list(self.new_individual)
 
             t = self.Tstart * .1 / k
 
             value = s_a.getEnergy(self, self.individual)
 
-            if len(y) >= 1:
-                if value > y[-1]:
-                    x.append(k)
-                    y.append(value)
-            else:
+            # if len(y) >= 1:
+            #     if value > y[-1]:
+            #         x.append(k)
+            #         y.append(value)
+            #         self.best_value = value
+            # else:
+            #     x.append(k)
+            #     y.append(value)
+            #     self.best_value = value
+            if k % 10 == 0 and k != 0:
+                print('k =', k)
                 x.append(k)
-                y.append(value)
-
-            # x.append(k)
-            # y.append(value)
+                y.append(np.max(values))
+                values = []
+            else:
+                values.append(value)
             if t < self.Tend:
                 break
 
-        plt.plot(x, y)
-        plt.xlabel('Количество популяций')
-        plt.ylabel('Значение целевой функции')
-        plt.show()
+        # x.append(self.Tstart)
+        # y.append(self.best_value)
+
+        # plt.plot(x, y)
+        # plt.xlabel('Количество популяций')
+        # plt.ylabel('Значение целевой функции')
+        # plt.show()
+
+        print('Алгоритм имитации отжига закончил работу.')
+        return x, y

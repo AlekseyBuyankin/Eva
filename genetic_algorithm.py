@@ -1,6 +1,6 @@
 from fits2 import *
 from random import shuffle, randint
-import matplotlib.pyplot as plt
+from numba import jit
 
 
 def printAll(obj):
@@ -64,8 +64,6 @@ def fitnessFunction(self, individual: list):
 
     parals = [(paral[0], paral[1], paral[2], paral[3], paral[4], 0) for paral in parals]
 
-    # parals = [(paral[0], paral[1], paral[2], paral[3], paral[4],
-    #            self.allDict['maxSpace'] - sum([paral[-2] for paral in parals])) for paral in individual]
     parals = [(paral[0], paral[1], paral[2], paral[3], paral[4],
                sum([paral[-2] for paral in parals]) / self.allDict['maxSpace']) for paral in individual]
 
@@ -80,13 +78,12 @@ def selection(self, population, ind_number):
     for individual in population:
         clearAll(self)
         self.allDict['parals'] = list([paral[0] for paral in individual])
-        self.allDict['is_show_parals'] = False
         firstFit(self, False)
         fitnessed_population.append(fitnessFunction(self, individual))
 
     selected_population = []
 
-    tournaments_number = int(ind_number * 0.8)
+    tournaments_number = int(ind_number * 0.7)
     lucker_number = ind_number - tournaments_number - 1
 
     # турнирная селекция
@@ -164,7 +161,6 @@ def findBestInPopulation(population):
     return population[np.argmin(np.array([individual[0][-1] for individual in population]))], np.min(
         np.array([individual[0][-1] for individual in population]))
 
-
 def geneticAlgorithm(self):
     number_of_iteration = self.allDict['number_of_iteration']  # количество итераций генетического алгоритма
     self.allDict['ind_number'] = ind_number = 100  # количество особей в каждой популяции
@@ -177,9 +173,10 @@ def geneticAlgorithm(self):
     x = []
     y = []
     shake_buff = []
-    for i in range(number_of_iteration):
+    values = []
+    for i in range(number_of_iteration + 1):
         # if i % 10 == 0:
-            # print('i =', i)
+        # print('i =', i)
 
         selected_population = selection(self, population, selected_number)
         crossed_population = crossing(self, selected_population, crossed_number)
@@ -201,7 +198,7 @@ def geneticAlgorithm(self):
                     shake_buff = [best_value]
             else:
                 shake_buff = [best_value]
-        #
+
         # if len(y) >= 1:
         #     if best_value > y[-1]:
         #         x.append(i + 1)
@@ -210,8 +207,16 @@ def geneticAlgorithm(self):
         #     x.append(i + 1)
         #     y.append(best_value)
 
-        x.append(i + 1)
-        y.append(best_value)
+        if i % 10 == 0:
+            print('i =', i)
+            x.append(i + 1)
+            if i == 0:
+                y.append(best_value)
+            else:
+                y.append(np.max(values))
+            values = []
+        else:
+            values.append(best_value)
 
         if self.allDict['best_value'] == .0:
             self.allDict['best_individual'] = list(best_individual)
@@ -233,10 +238,12 @@ def geneticAlgorithm(self):
     self.allDict['is_show_parals'] = True
     preparingForFF(self, False)
     firstFit(self, False)
+    self.allDict['is_show_parals'] = False
 
     # plt.plot(x, y)
     # plt.xlabel('Количество популяций')
     # plt.ylabel('Значение целевой функции')
     # plt.show()
 
+    print('Генетический алгоритм закончил работу.\n')
     return x, y

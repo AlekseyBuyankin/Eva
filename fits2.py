@@ -1,4 +1,5 @@
 from extensionsFuncs import *
+from numba import njit
 
 
 def firstFit(self, flag):

@@ -17,7 +17,7 @@ def clearAll(self):
 
 
 # скрещивание
-def crossing(population, parent_number):
+def crossing(self, population, parent_number):
     crossed_population = []
 
     # случайно выбираем родителей
@@ -42,10 +42,19 @@ def crossing(population, parent_number):
 
         crossed_population.append(list(final_individual))
 
-    return crossed_population
+    fitnessed_population = []
+    for individual in crossed_population:
+        clearAll(self)
+        self.allDict['parals'] = list([paral[0] for paral in individual])
+        self.allDict['is_show_parals'] = False
+        firstFit(self, False)
+        fitnessed_population.append(fitnessFunction(self, individual))
+
+    return fitnessed_population
 
 
-# фитнес-функция, где целевая функция - оставшееся место. Чем меньше - тем лучше
+# фитнес-функция, где целевая функция - занимаемый объем / объем контейнера.
+# Чем больше - тем лучше
 def fitnessFunction(self, individual: list):
     objects = list([paral[0] for paral in individual])
     parals = []
@@ -84,8 +93,8 @@ def selection(self, population, ind_number):
     replica = list(fitnessed_population)
     for _ in range(tournaments_number):
         shuffle(replica)
-        ind1 = list(replica.pop())
-        ind2 = list(replica.pop())
+        ind1 = list(replica[0])
+        ind2 = list(replica[1])
 
         if ind1[0][-1] >= ind2[0][-1]:
             selected_population.append(ind1)
@@ -104,9 +113,9 @@ def selection(self, population, ind_number):
 
 
 # мутация
-def mutation(population, mutation_number):
+def mutation(population, mutation_probability):
     for individual in population:
-        if randint(0, 99) < mutation_number:
+        if randint(0, 99) < mutation_probability:
             i = randint(0, len(individual) - 1)
             j = i
             while j == i:
@@ -158,18 +167,23 @@ def findBestInPopulation(population):
 
 def geneticAlgorithm(self):
     number_of_iteration = self.allDict['number_of_iteration']  # количество итераций генетического алгоритма
-    ind_number = 10  # количество особей в каждой популяции
-    crossed_number = ind_number * 10  # количество особей после размножения
-    mutation_number = 10  # шанс мутации (в %)
+    self.allDict['ind_number'] = ind_number = 100  # количество особей в каждой популяции
+    self.allDict['selected_number'] = selected_number = ind_number // 10  # количество особей после отбора
+    self.allDict['crossed_number'] = crossed_number = ind_number  # количество особей после размножения
+    self.allDict['mutation_probability'] = mutation_probability = 10  # шанс мутации (в %)
+
     population = firstPopulation(self, ind_number)  # генерация первой популяции
 
     x = []
     y = []
     shake_buff = []
     for i in range(number_of_iteration):
-        crossed_population = crossing(population, crossed_number)
-        selected_population = selection(self, crossed_population, ind_number)
-        population = mutation(selected_population, mutation_number)
+        # if i % 10 == 0:
+            # print('i =', i)
+
+        selected_population = selection(self, population, selected_number)
+        crossed_population = crossing(self, selected_population, crossed_number)
+        population = mutation(crossed_population, mutation_probability)
 
         best_individual = findBestInPopulation(population)[0]
         best_value = findBestInPopulation(population)[1]
@@ -187,14 +201,17 @@ def geneticAlgorithm(self):
                     shake_buff = [best_value]
             else:
                 shake_buff = [best_value]
+        #
+        # if len(y) >= 1:
+        #     if best_value > y[-1]:
+        #         x.append(i + 1)
+        #         y.append(best_value)
+        # else:
+        #     x.append(i + 1)
+        #     y.append(best_value)
 
-        if len(y) > 1:
-            if best_value > y[-1]:
-                x.append(i + 1)
-                y.append(best_value)
-        else:
-            x.append(i + 1)
-            y.append(best_value)
+        x.append(i + 1)
+        y.append(best_value)
 
         if self.allDict['best_value'] == .0:
             self.allDict['best_individual'] = list(best_individual)
@@ -204,12 +221,12 @@ def geneticAlgorithm(self):
                 self.allDict['best_individual'] = list(best_individual)
                 self.allDict['best_value'] = best_value
 
-    print('finalMin:')
-    print(self.allDict['best_value'], '\n')
-    printAll(self.allDict['best_individual'])
+    # print('finalMin:')
+    # print(self.allDict['best_value'], '\n')
 
-    x.append(number_of_iteration)
-    y.append(self.allDict['best_value'])
+    # x.append(number_of_iteration)
+    # y.append(self.allDict['best_value'])
+    # printAll(self.allDict['best_individual'])
 
     clearAll(self)
     self.allDict['parals'] = [individual[0] for individual in self.allDict['best_individual']]
@@ -217,7 +234,9 @@ def geneticAlgorithm(self):
     preparingForFF(self, False)
     firstFit(self, False)
 
-    plt.plot(x, y)
-    plt.xlabel('Количество популяций')
-    plt.ylabel('Значение целевой функции')
-    plt.show()
+    # plt.plot(x, y)
+    # plt.xlabel('Количество популяций')
+    # plt.ylabel('Значение целевой функции')
+    # plt.show()
+
+    return x, y

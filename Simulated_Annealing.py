@@ -1,0 +1,89 @@
+from random import shuffle, random
+from genetic_algorithm import printAll, clearAll
+from fits2 import firstFit
+from math import exp
+import matplotlib.pyplot as plt
+
+
+class Simulated_Annealing:
+    def __init__(self, allDict, allParals):
+        self.allDict = allDict
+        self.allParals = allParals
+
+        self.m = 3000
+        self.Tstart = 300
+        self.Tend = 0.1
+        self.ind_number = 10
+
+        self.individual = None
+        self.new_individual = None
+        self.energy = None
+        self.new_energy = None
+
+    def getFirstIndividual(self):
+        individual = list(self.allDict['paral_dict'])
+        shuffle(individual)
+        self.individual = list(individual)
+
+    def getNewIndividual(self):
+        individual = list(self.individual)
+        shuffle(individual)
+        self.new_individual = list(individual)
+
+    def getEnergy(self, individual):
+        clearAll(self)
+        self.allDict['parals'] = [paral[0] for paral in individual]
+        firstFit(self, False)
+
+        objects = list([paral[0] for paral in individual])
+        parals = []
+        for paral_obj in self.allDict['placedParals']:
+            ind = list(individual)
+            parals.append(ind[objects.index(paral_obj)])
+
+        energy = sum([paral[-1] for paral in parals]) / self.allDict['maxSpace']
+
+        return energy
+
+    def main(self):
+        s_a = Simulated_Annealing
+        t = self.Tstart
+
+        # задаем произвольное первое состояние s1
+        s_a.getFirstIndividual(self)
+
+        x = [0]
+        y = [s_a.getEnergy(self, self.individual)]
+        for k in range(1, self.m):
+            # вычисляем новую популяцию
+            s_a.getNewIndividual(self)
+
+            dE = s_a.getEnergy(self, self.individual) - s_a.getEnergy(self, self.new_individual)
+
+            if dE <= 0:
+                self.individual = list(self.new_individual)
+            else:
+                if random() <= exp(-dE / t):
+                    self.individual = list(self.new_individual)
+
+            t = self.Tstart * .1 / k
+
+            value = s_a.getEnergy(self, self.individual)
+
+            if len(y) >= 1:
+                if value > y[-1]:
+                    x.append(k)
+                    y.append(value)
+            else:
+                x.append(k)
+                y.append(value)
+
+            # x.append(k)
+            # y.append(value)
+            if t < self.Tend:
+                break
+
+        plt.plot(x, y)
+        plt.xlabel('Количество популяций')
+        plt.ylabel('Значение целевой функции')
+        plt.show()

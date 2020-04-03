@@ -8,7 +8,8 @@ import funcs
 import extrafuncs
 import fits2
 from extensionsFuncs import preparingForFF
-from genetic_algorithm import geneticAlgorithm
+from genetic_algorithm import geneticAlgorithm, printAll
+from Simulated_Annealing import Simulated_Annealing
 
 
 class movenment(QtWidgets.QMainWindow):
@@ -66,8 +67,13 @@ class mainMenu(QtWidgets.QMainWindow):
         funcs.population(self, self.allDict['k'])
         preparingForFF(self, False)
         # fits2.firstFit(self, False)
-        geneticAlgorithm(self)
+        # x, y = geneticAlgorithm(self)
 
+        self.allDict['is_show_parals'] = False
+
+
+        s_a = Simulated_Annealing(self.allDict, self.allParals)
+        s_a.main()
 
         # self.allDict['k'] = 2  # множитель размера параллелепипеда
         # self.allDict['xBorder'] = 10
@@ -143,6 +149,10 @@ if __name__ == '__main__':
         'allTranslations': {},
 
         'number_of_iteration': 300,
+        'ind_number': 0,
+        'crossed_number': 0,
+        'selected_number': 0,
+        'mutation_probability': 0,
         'is_show_parals': True,
         'best_individual': [],
         'best_value': .0

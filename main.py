@@ -142,7 +142,7 @@ if __name__ == '__main__':
 
         'allTranslations': {},
 
-        'number_of_iteration': 100,
+        'number_of_iteration': 300,
         'is_show_parals': True,
         'best_individual': [],
         'best_value': .0

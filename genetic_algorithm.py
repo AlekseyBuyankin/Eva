@@ -67,6 +67,7 @@ def fitnessFunction(self, individual: list):
 def selection(self, population, ind_number):
     fitnessed_population = []
 
+    # вычисляем (занимаемый объем / объем контейнера) для каждой особи
     for individual in population:
         clearAll(self)
         self.allDict['parals'] = list([paral[0] for paral in individual])
@@ -75,16 +76,29 @@ def selection(self, population, ind_number):
         fitnessed_population.append(fitnessFunction(self, individual))
 
     selected_population = []
+
+    tournaments_number = int(ind_number * 0.8)
+    lucker_number = ind_number - tournaments_number - 1
+
     # турнирная селекция
-    for _ in range(ind_number):
-        shuffle(fitnessed_population)
-        ind1 = list(fitnessed_population.pop())
-        ind2 = list(fitnessed_population.pop())
+    replica = list(fitnessed_population)
+    for _ in range(tournaments_number):
+        shuffle(replica)
+        ind1 = list(replica.pop())
+        ind2 = list(replica.pop())
 
         if ind1[0][-1] >= ind2[0][-1]:
             selected_population.append(ind1)
         else:
             selected_population.append(ind2)
+
+    # отбор счастливчиков
+    for _ in range(lucker_number):
+        shuffle(fitnessed_population)
+        selected_population.append(fitnessed_population[0])
+
+    # добавление 1 лучшего в популяции
+    selected_population.append(findBestInPopulation(fitnessed_population)[0])
 
     return selected_population
 
@@ -104,8 +118,23 @@ def mutation(population, mutation_number):
 
 
 # встряска
-def shake(self):
-    pass
+def shake(population):
+    survival_number = int(len(population) * 0.3)
+
+    shuffle(population)
+    # оставляем 1/3 поколения, остальная не выживает
+    new_population = list(population[0: survival_number])
+    random_number = len(population) - len(new_population)
+
+    # набираем новое поколение из случайных особей
+    for _ in range(random_number):
+        shuffle(population)
+        individual = population[0]
+        shuffle(individual)
+
+        new_population.append(individual)
+
+    return new_population
 
 
 def firstPopulation(self, ind_number):
@@ -123,7 +152,8 @@ def firstPopulation(self, ind_number):
 def findBestInPopulation(population):
     # print([individual[0][-1] for individual in population])
 
-    return population[np.argmin(np.array([individual[0][-1] for individual in population]))], np.min(np.array([individual[0][-1] for individual in population]))
+    return population[np.argmin(np.array([individual[0][-1] for individual in population]))], np.min(
+        np.array([individual[0][-1] for individual in population]))
 
 
 def geneticAlgorithm(self):
@@ -135,26 +165,51 @@ def geneticAlgorithm(self):
 
     x = []
     y = []
+    shake_buff = []
     for i in range(number_of_iteration):
-        # print('i =', i)
-        x.append(i + 1)
         crossed_population = crossing(population, crossed_number)
         selected_population = selection(self, crossed_population, ind_number)
-        population = list(mutation(selected_population, mutation_number))
-        # print(findBestInPopulation(population), '\n')
-        y.append(findBestInPopulation(population)[1])
+        population = mutation(selected_population, mutation_number)
+
+        best_individual = findBestInPopulation(population)[0]
+        best_value = findBestInPopulation(population)[1]
+
+        if not shake_buff:
+            shake_buff.append(best_value)
+        else:
+            if best_value == shake_buff[0]:
+                if len(shake_buff) < 2:
+                    shake_buff.append(best_value)
+                else:
+                    population = shake(population)
+                    best_individual = findBestInPopulation(population)[0]
+                    best_value = findBestInPopulation(population)[1]
+                    shake_buff = [best_value]
+            else:
+                shake_buff = [best_value]
+
+        if len(y) > 1:
+            if best_value > y[-1]:
+                x.append(i + 1)
+                y.append(best_value)
+        else:
+            x.append(i + 1)
+            y.append(best_value)
 
         if self.allDict['best_value'] == .0:
-            self.allDict['best_individual'] = list(findBestInPopulation(population)[0])
-            self.allDict['best_value'] = findBestInPopulation(population)[1]
+            self.allDict['best_individual'] = list(best_individual)
+            self.allDict['best_value'] = best_value
         else:
-            if self.allDict['best_value'] < findBestInPopulation(population)[1]:
-                self.allDict['best_individual'] = list(findBestInPopulation(population)[0])
-                self.allDict['best_value'] = findBestInPopulation(population)[1]
+            if self.allDict['best_value'] < best_value:
+                self.allDict['best_individual'] = list(best_individual)
+                self.allDict['best_value'] = best_value
 
     print('finalMin:')
     print(self.allDict['best_value'], '\n')
     printAll(self.allDict['best_individual'])
+
+    x.append(number_of_iteration)
+    y.append(self.allDict['best_value'])
 
     clearAll(self)
     self.allDict['parals'] = [individual[0] for individual in self.allDict['best_individual']]
@@ -164,5 +219,5 @@ def geneticAlgorithm(self):
 
     plt.plot(x, y)
     plt.xlabel('Количество популяций')
-    plt.ylabel('Занимаемый объем / объем контейнера')
+    plt.ylabel('Значение целевой функции')
     plt.show()

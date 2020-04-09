@@ -1,5 +1,4 @@
 from extensionsFuncs import *
-from numba import njit
 
 
 def firstFit(self, flag):
@@ -37,6 +36,14 @@ def recFF(self, flag):
     # если объект первый
     if current_paral == 0:
         paral = self.allDict['parals'][current_paral]
+        (paralX, paralY, paralZ) = self.allParals[paral]
+        matrices = self.allDict['matrices']
+        matrixXY = matrices[0]
+
+        if paralX >= len(matrixXY) or paralY >= len(matrixXY[0]) or paralZ >= len(matrices):
+            self.allDict['currentParal'] += 1
+            return False
+
         if self.allDict['is_show_parals']:
             window = self.ui.gl
             window.addItem(paral)
@@ -79,68 +86,68 @@ def recFindPlace(self, beginZ):
             return False
 
         # по количеству оставшегося места в matrixXY
-        if np.count_nonzero(matrixXY == 0) < paralX * paralY:
+        if np.count_nonzero(matrixXY == 0) <= paralX * paralY:
             # print('Проверка по количеству оставшегося места в matrixXY\n')
             if recFindPlace(self, beginZ + 1):
                 return True
             else:
                 return False
 
-        for rowIndex in range(len(matrixXY)):
-            # print('rowIndex:', rowIndex, '\n')
-            row = np.array(matrixXY[rowIndex])
+        for row_index in range(len(matrixXY)):
+            # print('row_index:', row_index, '\n')
+            row = np.array(matrixXY[row_index])
 
             # по свободному месту в ряду по X (если свободных ячеек меньше чем длина объекта)
-            if np.count_nonzero(row == 0) < paralX:
+            if np.count_nonzero(row == 0) <= paralX:
                 # print('Проверка 1: по свободному месту в ряду по X', np.count_nonzero(row == 0), '<', paralX, '\n')
                 continue
 
             # если объект не вместится по Y
-            if len(matrixXY) - rowIndex < paralY:
-                # print('Проверка 2: если объект не вместится по Y', len(matrixXY), '-', rowIndex, '<', paralY, '\n')
+            if len(matrixXY) - row_index <= paralY:
+                # print('Проверка 2: если объект не вместится по Y', len(matrixXY), '-', row_index, '<', paralY, '\n')
                 if recFindPlace(self, beginZ + 1):
                     return True
                 else:
                     return False
 
             # если легкие проверки пройдены
-            for colIndex in range(len(matrixXY[0])):
+            for col_index in range(len(matrixXY[0])):
                 # находим свободную ячейку
-                if matrixXY[rowIndex, colIndex] == 0:
-                    col = np.array(matrixXY[:, colIndex])
+                if matrixXY[row_index, col_index] == 0:
+                    col = np.array(matrixXY[:, col_index])
                     # print('Нашел свободную ячейку', 'col =', col)
 
                     # если свободных ячеек осталось меньше чем длина объекта
-                    if np.count_nonzero(col[colIndex:] == 0) < paralX:
-                        # print('Проверка 3: если свободных ячеек осталось меньше чем длина объекта', col[colIndex:],
-                        #       np.count_nonzero(col[colIndex:] == 0), '<', paralX)
+                    if np.count_nonzero(col[col_index:] == 0) <= paralX:
+                        # print('Проверка 3: если свободных ячеек осталось меньше чем длина объекта', col[col_index:],
+                        #       np.count_nonzero(col[col_index:] == 0), '<', paralX)
                         break
 
-                    # если случается неведомая фигня
-                    if rowIndex + paralX > len(matrixXY[0]) or colIndex + paralY > len(matrixXY):
-                        # print('Проверка 4: если случается неведомая фигня')
-                        # print(rowIndex, '+', paralX, '>', len(matrixXY[0]), 'and', colIndex, '+', paralY, '>',
+                    # если заходит за границы
+                    if row_index + paralX >= len(matrixXY) or col_index + paralY >= len(matrixXY[0]):
+                        # print('Проверка 4: заходит за границы')
+                        # print(row_index, '+', paralX, '>', len(matrixXY[0]), 'and', col_index, '+', paralY, '>',
                         #       len(matrixXY))
                         break
 
                     # если свободных ячеек по Y меньше чем ширина объета
-                    if np.count_nonzero(row[colIndex: colIndex + paralY] == 0) != paralY:
-                        # print(row[colIndex: colIndex + paralY],
-                        #       np.count_nonzero(row[colIndex: colIndex + paralY] == 0),
+                    if np.count_nonzero(row[col_index: col_index + paralY] == 0) != paralY:
+                        # print(row[col_index: col_index + paralY],
+                        #       np.count_nonzero(row[col_index: col_index + paralY] == 0),
                         #       '!=', paralY)
                         break
 
                     # подтверждаем или опровергаем, что в этом месте paralX, paralY,  paralZ свободных ячеек
-                    if isAvailableXYZ(self, rowIndex, colIndex, beginZ):
+                    if isAvailableXYZ(self, row_index, col_index, beginZ):
                         # вставляем объект на плоскость
                         if self.allDict['is_show_parals']:
-                            self.allDict['allTranslations'][paral] = (rowIndex, colIndex, beginZ)
-                            paral.translate(rowIndex, colIndex, beginZ)
+                            self.allDict['allTranslations'][paral] = (row_index, col_index, beginZ)
+                            paral.translate(row_index, col_index, beginZ)
                             window = self.ui.gl
                             window.addItem(paral)
                         self.allDict['placedParals'].append(paral)
                         # записываем данные объекта в матрицы
-                        writeToAllMatrices(self, rowIndex, colIndex, beginZ)
+                        writeToAllMatrices(self, row_index, col_index, beginZ)
 
                         # print('Слой:', beginZ)
                         # print('Матрицы после:')

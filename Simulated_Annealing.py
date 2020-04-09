@@ -1,17 +1,15 @@
 from random import shuffle, random
-from genetic_algorithm import printAll, clearAll
+from extensionsFuncs import printAll, clearAll
 from fits2 import firstFit
 from math import exp
-import matplotlib.pyplot as plt
-import numpy as np
 
 
 class Simulated_Annealing:
-    def __init__(self, allDict, allParals):
+    def __init__(self, allDict, allParals, number_of_generations):
         self.allDict = allDict
         self.allParals = allParals
 
-        self.Tstart = self.allDict['number_of_iteration']
+        self.Tstart = number_of_generations
         self.m = self.Tstart * 10
         self.Tend = 0.1
         self.ind_number = 10
@@ -56,7 +54,7 @@ class Simulated_Annealing:
 
         x = [0]
         y = [s_a.getEnergy(self, self.individual)]
-        values = []
+        self.best_value = s_a.getEnergy(self, self.individual)
         for k in range(1, self.m):
             # вычисляем новую популяцию
             s_a.getNewIndividual(self)
@@ -67,7 +65,6 @@ class Simulated_Annealing:
                 self.individual = list(self.new_individual)
             else:
                 p = random()
-                # print(p, exp(-dE / t))
                 if p <= exp(-dE / t):
                     self.individual = list(self.new_individual)
 
@@ -75,32 +72,11 @@ class Simulated_Annealing:
 
             value = s_a.getEnergy(self, self.individual)
 
-            # if len(y) >= 1:
-            #     if value > y[-1]:
-            #         x.append(k)
-            #         y.append(value)
-            #         self.best_value = value
-            # else:
-            #     x.append(k)
-            #     y.append(value)
-            #     self.best_value = value
-            if k % 10 == 0 and k != 0:
-                print('k =', k)
+            if value > y[-1]:
                 x.append(k)
-                y.append(np.max(values))
-                values = []
-            else:
-                values.append(value)
+                y.append(value)
+                self.best_value = value
             if t < self.Tend:
                 break
 
-        # x.append(self.Tstart)
-        # y.append(self.best_value)
-
-        # plt.plot(x, y)
-        # plt.xlabel('Количество популяций')
-        # plt.ylabel('Значение целевой функции')
-        # plt.show()
-
-        print('Алгоритм имитации отжига закончил работу.')
-        return x, y
+        return self.best_value

@@ -39,3 +39,15 @@ Best Fit
 
 Нужно проверить, если не 0й слой:
 	Чтобы под найденной областью был объект
+
+
+interface:
+self.genes_number - количество генов - любой
+self.ind_number - количество особей в популяции (размер популяции) - > 10
+self.elite - размер элиты
+self.mutation_probability - шанс на мутацию
+
+self.allDict['k'] - множитель объектов - size_multiplier
+self.allDict['xBorder'] и тд -  + 1 > k
+
+self.allDict['number_of_iteration'] - количество итераций генетического алгоритма

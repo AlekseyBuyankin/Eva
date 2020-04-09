@@ -5,21 +5,22 @@ from random import randint
 import colorsys
 
 
-# действия на кнопку
-def onButtonClick(self, buttons: list, button):
-    if buttons and button != self.ui.startButton and self.ui.textButton:
-        if self.allDict['otherButtons']:
-            self.allDict['otherButtons'][0].setStyleSheet(
-                styles.params(True, True, styles.getLight(), True, styles.getFontStyle()))
-            self.allDict['otherButtons'].remove(self.allDict['otherButtons'][0])
-
-        buttons[0].setStyleSheet(styles.params(True, True, styles.getLight(), True, styles.getFontStyle()))
-
-        buttons.remove(buttons[0])
-
-    button.setStyleSheet(styles.params(True, True, styles.getDark(), True, styles.getFontStyle()))
-
-    buttons.append(button)
+#
+# # действия на кнопку
+# def onButtonClick(self, buttons: list, button):
+#     if buttons and button != self.ui.startButton and self.ui.textButton:
+#         if self.allDict['otherButtons']:
+#             self.allDict['otherButtons'][0].setStyleSheet(
+#                 styles.params(True, True, styles.getLight(), True, styles.getFontStyle()))
+#             self.allDict['otherButtons'].remove(self.allDict['otherButtons'][0])
+#
+#         buttons[0].setStyleSheet(styles.params(True, True, styles.getLight(), True, styles.getFontStyle()))
+#
+#         buttons.remove(buttons[0])
+#
+#     button.setStyleSheet(styles.params(True, True, styles.getDark(), True, styles.getFontStyle()))
+#
+#     buttons.append(button)
 
 
 # добавить одну надпись

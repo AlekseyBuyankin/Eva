@@ -2,11 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dbac777f-68e7-402f-965f-c4dbd4d8e2a3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Simulated_Annealing.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Genetic_Algorithm_3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/launch.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Eva.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Eva.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simulated_Annealing.py" beforeDir="false" afterPath="$PROJECT_DIR$/Simulated_Annealing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exs/ex2.py" beforeDir="false" afterPath="$PROJECT_DIR$/exs/ex2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensionsFuncs.py" beforeDir="false" afterPath="$PROJECT_DIR$/extensionsFuncs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extrafuncs.py" beforeDir="false" afterPath="$PROJECT_DIR$/extrafuncs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fits2.py" beforeDir="false" afterPath="$PROJECT_DIR$/fits2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/funcs.py" beforeDir="false" afterPath="$PROJECT_DIR$/funcs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genetic_algorithm.py" beforeDir="false" afterPath="$PROJECT_DIR$/genetic_algorithm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genetic_algorithm.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mainMenu.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainMenu.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mainMenu.ui" beforeDir="false" afterPath="$PROJECT_DIR$/mainMenu.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles.py" beforeDir="false" afterPath="$PROJECT_DIR$/styles.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,37 +28,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="70" selection-start-line="70" selection-end-line="70" />
+            <state relative-caret-position="361">
+              <caret line="117" lean-forward="true" selection-start-line="117" selection-end-line="117" />
               <folding>
                 <element signature="e#0#27#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Simulated_Annealing.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="47">
-              <caret line="70" column="15" selection-start-line="70" selection-start-column="15" selection-end-line="70" selection-end-column="15" />
-              <folding>
-                <element signature="e#0#34#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/genetic_algorithm.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="204" column="22" selection-start-line="204" selection-start-column="22" selection-end-line="204" selection-end-column="22" />
-              <folding>
-                <element signature="e#0#19#0" expanded="true" />
+                <element signature="e#492#1721#0" />
               </folding>
             </state>
           </provider>
@@ -55,41 +44,31 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fits2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2587">
-              <caret line="10" column="60" selection-start-line="10" selection-start-column="60" selection-end-line="10" selection-end-column="60" />
+            <state relative-caret-position="320">
+              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/funcs.py">
+        <entry file="file://$PROJECT_DIR$/Genetic_Algorithm_3.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="613">
-              <caret line="173" selection-start-line="173" selection-end-line="173" />
+            <state relative-caret-position="193">
+              <caret line="87" column="29" selection-start-line="87" selection-start-column="28" selection-end-line="87" selection-end-column="29" />
               <folding>
-                <element signature="e#0#29#0" expanded="true" />
+                <element signature="e#0#18#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/extensionsFuncs.py">
+        <entry file="file://$PROJECT_DIR$/Simulated_Annealing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/extrafuncs.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1440">
-              <caret line="102" column="35" selection-start-line="102" selection-start-column="35" selection-end-line="102" selection-end-column="35" />
+            <state relative-caret-position="80">
+              <caret line="4" selection-start-line="4" selection-end-line="4" />
               <folding>
-                <element signature="e#0#31#0" expanded="true" />
-                <element signature="e#1882#2562#0" />
+                <element signature="e#0#34#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -98,10 +77,48 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/styles.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="193">
+              <caret line="15" column="36" lean-forward="true" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
               <folding>
                 <element signature="e#20#47#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/funcs.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="41">
+              <caret line="163" column="4" selection-start-line="163" selection-start-column="4" selection-end-line="163" selection-end-column="4" />
+              <folding>
+                <element signature="e#0#29#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/extrafuncs.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="98">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
+              <folding>
+                <element signature="e#0#31#0" expanded="true" />
+                <element signature="e#149#151#0" />
+                <element signature="e#1882#2562#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/extensionsFuncs.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="281">
+              <caret line="93" column="19" lean-forward="true" selection-start-line="93" selection-start-column="19" selection-end-line="93" selection-end-column="19" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -118,59 +135,43 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>')</find>
-      <find>ku</find>
-      <find>Проверка по высоте</find>
-      <find>Слой</find>
-      <find>currentParal</find>
+      <find>l_best_solution</find>
+      <find>randint</find>
+      <find>population_size</find>
+      <find>sol1</find>
+      <find>sol2</find>
+      <find>random</find>
+      <find>Population</find>
+      <find>population</find>
       <find>rowIndex</find>
       <find>colIndex</find>
-      <find>'current_paral'</find>
-      <find>parals</find>
-      <find>Место</find>
-      <find>место</find>
-      <find>placedParals</find>
-      <find>preparingForFFD</find>
-      <find>self.allDict['matrixOfMatrices']</find>
-      <find>append</find>
-      <find>numberOfIndividuals</find>
-      <find>selectedPopulation</find>
-      <find>crossedPopulation</find>
-      <find>allTranslations</find>
-      <find>firstFit</find>
-      <find>findMinInPopulation</find>
-      <find>mutation_number</find>
+      <find>printAll</find>
+      <find>ku</find>
+      <find>heh</find>
+      <find>ind</find>
+      <find>ind_</find>
+      <find>best</find>
+      <find>s_a</find>
+      <find>rand</find>
+      <find>paral_volume</find>
+      <find>mpatches</find>
+      <find>bbfl</find>
+      <find>fontStyle</find>
+      <find>iteration</find>
+      <find>firstFitDecreasing</find>
+      <find>clearAll</find>
+      <find>fits2.</find>
+      <find>is</find>
+      <find>print</find>
       <find>&lt;</find>
       <find>&gt;</find>
-      <find>printAll</find>
-      <find>firstPopulation</find>
-      <find>getFirstPopulation</find>
-      <find>population</find>
-      <find>Population</find>
-      <find>print</find>
     </findStrings>
     <replaceStrings>
-      <replace>makeRandParallelepiped</replace>
-      <replace>makeParallelepiped</replace>
-      <replace>makeRandParallelepipedCoords</replace>
-      <replace>makeParallelepipedCoords</replace>
-      <replace>createMatrices</replace>
-      <replace>currentZlvl</replace>
-      <replace>recFF</replace>
-      <replace>fits2</replace>
-      <replace>matrices</replace>
-      <replace>Matrices</replace>
-      <replace>beginZ</replace>
-      <replace>\nПроверка</replace>
-      <replace>\n')</replace>
       <replace>current_paral</replace>
-      <replace>row_index</replace>
-      <replace>col_index</replace>
       <replace>'currentParal'</replace>
       <replace>firstFitDecreasing</replace>
       <replace>ps</replace>
       <replace>preparingForFF</replace>
-      <replace>ind_number</replace>
       <replace>population</replace>
       <replace>crossed_population</replace>
       <replace>fincBestInPopulation</replace>
@@ -178,8 +179,24 @@
       <replace>getFirstPopulation</replace>
       <replace>getNewPopulation</replace>
       <replace>individual</replace>
-      <replace>Individual</replace>
       <replace>mutation_probability</replace>
+      <replace>Individual</replace>
+      <replace>best_solution</replace>
+      <replace>best_cost</replace>
+      <replace>ind_number</replace>
+      <replace>parent1</replace>
+      <replace>parent2</replace>
+      <replace>Genes</replace>
+      <replace>genes</replace>
+      <replace>row_index</replace>
+      <replace>col_index</replace>
+      <replace>self</replace>
+      <replace>sa</replace>
+      <replace>parals_volume</replace>
+      <replace>bbfl12</replace>
+      <replace>fontStyle12</replace>
+      <replace>generations</replace>
+      <replace>firstFit</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -200,25 +217,29 @@
       <list>
         <option value="$PROJECT_DIR$/ex1.py" />
         <option value="$PROJECT_DIR$/ex2.py" />
-        <option value="$PROJECT_DIR$/exs/ex2.py" />
-        <option value="$PROJECT_DIR$/extrafuncs.py" />
-        <option value="$PROJECT_DIR$/styles.py" />
         <option value="$PROJECT_DIR$/fits.py" />
         <option value="$PROJECT_DIR$/exs/ex1.py" />
-        <option value="$PROJECT_DIR$/extensionsFuncs.py" />
         <option value="$PROJECT_DIR$/Kirill.py" />
-        <option value="$PROJECT_DIR$/fits2.py" />
+        <option value="$PROJECT_DIR$/abc.py" />
+        <option value="$PROJECT_DIR$/ex.py" />
+        <option value="$PROJECT_DIR$/Genetic_Algorithm_2.py" />
+        <option value="$PROJECT_DIR$/exs/ex2.py" />
         <option value="$PROJECT_DIR$/funcs.py" />
-        <option value="$PROJECT_DIR$/main.py" />
-        <option value="$PROJECT_DIR$/Simulated_Annealing.py" />
+        <option value="$PROJECT_DIR$/styles.py" />
         <option value="$PROJECT_DIR$/genetic_algorithm.py" />
+        <option value="$PROJECT_DIR$/Simulated_Annealing.py" />
+        <option value="$PROJECT_DIR$/Genetic_Algorithm_3.py" />
+        <option value="$PROJECT_DIR$/fits2.py" />
+        <option value="$PROJECT_DIR$/extensionsFuncs.py" />
+        <option value="$PROJECT_DIR$/extrafuncs.py" />
+        <option value="$PROJECT_DIR$/main.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
+    <option name="x" value="-10" />
     <option name="width" value="975" />
-    <option name="height" value="1048" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -228,6 +249,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -235,23 +257,30 @@
               <item name="Eva" type="b2602c69:ProjectViewProjectNode" />
               <item name="Eva" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Eva" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Eva" type="462c0819:PsiDirectoryNode" />
+              <item name="exs" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../knapsackProblem" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="settings.github" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\L\PycharmProjects\Eva" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\L\PycharmProjects\Eva\exs" />
     </key>
@@ -291,7 +320,51 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="ex1" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="abc" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Eva" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/abc.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="ex" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Eva" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ex.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="ex2" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Eva" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -304,51 +377,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/exs/ex1.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="funcs" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Eva" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/funcs.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="genetic_algorithm" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Eva" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/genetic_algorithm.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/exs/ex2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -382,10 +411,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.main" />
+        <item itemvalue="Python.ex2" />
+        <item itemvalue="Python.ex" />
+        <item itemvalue="Python.abc" />
         <item itemvalue="Python.Kirill" />
-        <item itemvalue="Python.genetic_algorithm" />
-        <item itemvalue="Python.ex1" />
-        <item itemvalue="Python.funcs" />
       </list>
     </recent_temporary>
   </component>
@@ -417,7 +446,12 @@
       <workItem from="1585589492322" duration="5143000" />
       <workItem from="1585749809680" duration="27449000" />
       <workItem from="1585906761933" duration="1234000" />
-      <workItem from="1585908018490" duration="21454000" />
+      <workItem from="1585908018490" duration="29055000" />
+      <workItem from="1585988158755" duration="44797000" />
+      <workItem from="1586130839473" duration="9637000" />
+      <workItem from="1586196656948" duration="13792000" />
+      <workItem from="1586252784126" duration="5268000" />
+      <workItem from="1586440124193" duration="5531000" />
     </task>
     <task id="LOCAL-00001" summary="commit test">
       <created>1584172754645</created>
@@ -482,23 +516,37 @@
       <option name="project" value="LOCAL" />
       <updated>1585926332353</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="new Simulated Annealing">
+      <created>1585939248324</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1585939248324</updated>
+    </task>
+    <task id="LOCAL-00011" summary="little changes">
+      <created>1585948978997</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1585948978997</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="166888000" />
+    <option name="totallyTimeSpent" value="253514000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.099732265" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12048193" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Concurrent Activities Diagram" order="0" weight="0.32957748" />
       <window_info anchor="bottom" id="Message" order="1" />
-      <window_info anchor="bottom" id="Find" order="2" weight="0.32957748" />
-      <window_info anchor="bottom" id="Run" order="3" visible="true" weight="0.49014086" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.38169014" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.49799198" visible="true" weight="0.2" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4225352" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -506,15 +554,15 @@
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.63380283" />
       <window_info anchor="bottom" id="Database Changes" order="10" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.502008" side_tool="true" weight="0.26619717" />
       <window_info anchor="bottom" id="Terminal" order="12" weight="0.32957748" />
-      <window_info anchor="bottom" id="Python Console" order="13" weight="0.04225352" />
+      <window_info anchor="bottom" id="Python Console" order="13" weight="0.41549295" />
       <window_info anchor="bottom" id="Messages" order="14" weight="0.38169014" />
       <window_info anchor="right" x="0" y="0" width="337" height="638" id="Documentation" order="0" side_tool="true" weight="0.24431057" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
-      <window_info active="true" anchor="right" id="SciView" order="4" visible="true" weight="0.44912985" />
+      <window_info anchor="right" x="521" y="144" width="493" height="535" id="SciView" order="4" weight="0.045515396" />
       <window_info anchor="right" id="R Graphics" order="5" />
       <window_info anchor="right" id="R Packages" order="6" />
       <window_info anchor="right" id="Database" order="7" />
@@ -534,24 +582,21 @@
     <MESSAGE value="full GA + plot" />
     <MESSAGE value="bag fixes + the best result output" />
     <MESSAGE value="shake + plot" />
-    <option name="LAST_COMMIT_MESSAGE" value="shake + plot" />
-  </component>
-  <component name="XDebuggerManager">
-    <watches-manager>
-      <configuration name="PythonConfigurationType">
-        <watch expression="out" />
-      </configuration>
-    </watches-manager>
+    <MESSAGE value="new Simulated Annealing" />
+    <MESSAGE value="little changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="little changes" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Eva$genetic_algorithm.coverage" NAME="genetic_algorithm Coverage Results" MODIFIED="1585751051683" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Eva$ex2.coverage" NAME="ex2 Coverage Results" MODIFIED="1583673359453" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/exs" />
     <SUITE FILE_PATH="coverage/Eva$Kirill.coverage" NAME="Kirill Coverage Results" MODIFIED="1585768424127" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Eva$ex2.coverage" NAME="ex2 Coverage Results" MODIFIED="1586131885633" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/exs" />
     <SUITE FILE_PATH="coverage/Eva$styles.coverage" NAME="styles Coverage Results" MODIFIED="1583601742400" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Eva$fits2.coverage" NAME="fits2 Coverage Results" MODIFIED="1584331515883" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Eva$main.coverage" NAME="main Coverage Results" MODIFIED="1585939182136" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Eva$ex.coverage" NAME="ex Coverage Results" MODIFIED="1585991023970" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Eva$main.coverage" NAME="main Coverage Results" MODIFIED="1586446982901" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Eva$funcs.coverage" NAME="funcs Coverage Results" MODIFIED="1583616892412" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Eva$fits.coverage" NAME="fits Coverage Results" MODIFIED="1583775948524" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Eva$abc.coverage" NAME="abc Coverage Results" MODIFIED="1585988954138" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Eva$ex1.coverage" NAME="ex1 Coverage Results" MODIFIED="1585484261347" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/exs" />
   </component>
   <component name="debuggerHistoryManager">
@@ -614,16 +659,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/exs/ex2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="33" column="32" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
-          <folding>
-            <element signature="e#204#217#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/Program Files (x86)/Python37-32/Lib/site-packages/pyqtgraph/opengl/items/GLMeshItem.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -642,13 +677,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Program Files (x86)/Python37-32/Lib/random.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-104">
-          <caret line="265" lean-forward="true" selection-start-line="265" selection-end-line="265" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Kirill.py" />
     <entry file="file://C:/Program Files (x86)/Python37-32/Lib/site-packages/numpy/core/numeric.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -657,77 +685,159 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/extrafuncs.py">
+    <entry file="file://C:/Program Files (x86)/Python37-32/Lib/site-packages/numpy/core/fromnumeric.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1440">
-          <caret line="102" column="35" selection-start-line="102" selection-start-column="35" selection-end-line="102" selection-end-column="35" />
+        <state relative-caret-position="20">
+          <caret line="85" selection-start-line="85" selection-end-line="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/abc.py" />
+    <entry file="file://C:/Program Files (x86)/Python37-32/Lib/site-packages/numba/decorators.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-84">
+          <caret line="226" column="4" selection-start-line="226" selection-start-column="4" selection-end-line="226" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ex.py" />
+    <entry file="file://C:/Program Files (x86)/Python37-32/Lib/random.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="274" selection-start-line="274" selection-end-line="274" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exs/fig.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fig.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python37/site-packages/matplotlib/axes/_axes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-330">
+          <caret line="2168" column="24" lean-forward="true" selection-start-line="2168" selection-start-column="24" selection-end-line="2168" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python37/site-packages/matplotlib/pyplot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="2407" column="52" selection-start-line="2407" selection-start-column="52" selection-end-line="2407" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files (x86)/Python37-32/Lib/site-packages/numpy/lib/stride_tricks.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="192" selection-start-line="192" selection-end-line="192" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Genetic_Algorithm_2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
           <folding>
-            <element signature="e#0#31#0" expanded="true" />
-            <element signature="e#1882#2562#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/styles.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-          <folding>
-            <element signature="e#20#47#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fits2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2587">
-          <caret line="10" column="60" selection-start-line="10" selection-start-column="60" selection-end-line="10" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/funcs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="613">
-          <caret line="173" selection-start-line="173" selection-end-line="173" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/extensionsFuncs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="70" selection-start-line="70" selection-end-line="70" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Simulated_Annealing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="47">
-          <caret line="70" column="15" selection-start-line="70" selection-start-column="15" selection-end-line="70" selection-end-column="15" />
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
+            <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/genetic_algorithm.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="204" column="22" selection-start-line="204" selection-start-column="22" selection-end-line="204" selection-end-column="22" />
+        <state relative-caret-position="100">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Simulated_Annealing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exs/ex2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Genetic_Algorithm_3.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="87" column="29" selection-start-line="87" selection-start-column="28" selection-end-line="87" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/styles.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="15" column="36" lean-forward="true" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
+          <folding>
+            <element signature="e#20#47#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/funcs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="41">
+          <caret line="163" column="4" selection-start-line="163" selection-start-column="4" selection-end-line="163" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/extrafuncs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+            <element signature="e#149#151#0" />
+            <element signature="e#1882#2562#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/extensionsFuncs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="93" column="19" lean-forward="true" selection-start-line="93" selection-start-column="19" selection-end-line="93" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fits2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="117" lean-forward="true" selection-start-line="117" selection-end-line="117" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+            <element signature="e#492#1721#0" />
           </folding>
         </state>
       </provider>

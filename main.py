@@ -2,15 +2,13 @@ from PyQt5 import QtWidgets
 from mainMenu import Ui_MainWindow
 import sys
 import numpy as np
-import matplotlib.pyplot as plt
 
 import styles
 import funcs
 import extrafuncs
-import fits2
-from extensionsFuncs import preparingForFF
-from genetic_algorithm import geneticAlgorithm, printAll
-from Simulated_Annealing import Simulated_Annealing
+from fits2 import firstFit
+from extensionsFuncs import preparingForFF, printAll, clearAll
+from Genetic_Algorithm_3 import Generic_Algorithm
 
 
 class movenment(QtWidgets.QMainWindow):
@@ -51,6 +49,7 @@ class mainMenu(QtWidgets.QMainWindow):
         self.ui.setupUi(self)
         self.allDict = allDict
         self.allParals = allParals
+        self.genes_number = 25
 
         movenment.center(self)
         self.setWindowTitle('Byankin Aleksey')
@@ -63,25 +62,15 @@ class mainMenu(QtWidgets.QMainWindow):
         self.ui.stepForwardButton.clicked.connect(self.stepForwardButton)
         self.ui.startButton.clicked.connect(self.startButton)
 
-        self.allDict['maxSpace'] = self.allDict['xBorder'] * self.allDict['yBorder'] * self.allDict['zBorder']
-
-        funcs.population(self, self.allDict['k'])
-        preparingForFF(self, False)
-        # fits2.firstFit(self, False)
-        x, y = geneticAlgorithm(self)
-        s_a = Simulated_Annealing(self.allDict, self.allParals)
-        x1, y1 = s_a.main()
-        plt.plot(x, y, 'b', x1, y1, 'r')
-        # plt.plot(x, y, 'b')
-        # plt.plot(x1, y1, 'r')
-        plt.xlabel('Количество популяций')
-        plt.ylabel('Значение целевой функции')
-        plt.show()
-
-        # self.allDict['k'] = 2  # множитель размера параллелепипеда
-        # self.allDict['xBorder'] = 10
-        # self.allDict['yBorder'] = 10
-        # self.allDict['zBorder'] = 10
+        self.ui.genes_number.setText('25')
+        self.ui.ind_number.setText('15')
+        self.ui.elite.setText('.1')
+        self.ui.mutation_probability.setText('.001')
+        self.ui.size_multiplier.setText('4')
+        self.ui.xBorder.setText('10')
+        self.ui.yBorder.setText('10')
+        self.ui.zBorder.setText('10')
+        self.ui.number_of_generations.setText('10')
 
     def textButton(self):
         if self.allDict['textBox']:
@@ -97,6 +86,7 @@ class mainMenu(QtWidgets.QMainWindow):
                 else:
                     self.allDict['currentParal'] -= 1
                 w = self.ui.gl
+                print(self.allDict['currentParal'])
 
                 w.removeItem(self.allDict['placedParals'][self.allDict['currentParal']])
 
@@ -112,30 +102,68 @@ class mainMenu(QtWidgets.QMainWindow):
                     self.allDict['matrixOfMatrices'][-1]
 
     def stepForwardButton(self):
-        if not self.allDict['parals']:
-            funcs.population(self, self.allDict['k'])
-            preparingForFF(self, False)
-            fits2.firstFitDecreasing(self, True)
-        else:
-            fits2.firstFitDecreasing(self, True)
+        # print(self.allDict['currentParal'])
+        # if not self.allDict['parals']:
+        #     funcs.randGenes(self, self.allDict['k'])
+        #     preparingForFF(self, False)
+        #     firstFit(self, True)
+        # else:
+        #     self.allDict['is_show_parals'] = True
+        #     firstFit(self, False)
+        #     self.allDict['is_show_parals'] = False
+
+        print('Будет доступна в следующей версии')
+
+        pass
 
     def startButton(self):
-        if not self.allDict['parals']:
-            # funcs.randPopulation(self, self.allDict['k'], 25)
-            funcs.population(self, self.allDict['k'])
-            preparingForFF(self, False)
-            fits2.firstFitDecreasing(self, False)
-        else:
-            fits2.firstFitDecreasing(self, False)
+        w = self.ui.gl
+        for paral in self.allDict['placedParals']:
+            w.removeItem(paral)
+
+        clearAll(self)
+        self.allDict['parals'] = []
+
+        mainMenu.getAllData(self)
+
+        funcs.randGenes(self, self.allDict['k'])
+        preparingForFF(self, False)
+        ga = Generic_Algorithm(self.allDict, self.allParals, number_of_generations=self.number_of_generations,
+                               ind_number=self.ind_number, elite=self.elite,
+                               mutation_probability=self.mutation_probability)
+        ga_best_value, ga_best_solution, _ = ga.main()
+
+        self.allDict['parals'] = ga_best_solution
+        self.allDict['is_show_parals'] = True
+        preparingForFF(self, False)
+        clearAll(self)
+        firstFit(self, False)
+        self.allDict['is_show_parals'] = False
+
+        self.ui.best_value.setText(str(ga_best_value * 100)[:2] + '%')
+        print('Готово!')
+
+    def getAllData(self):
+        self.genes_number = int(self.ui.genes_number.text())
+        self.ind_number = int(self.ui.ind_number.text())
+        self.elite = float(self.ui.elite.text())
+        self.mutation_probability = float(self.ui.mutation_probability.text())
+        self.size_multiplier = self.allDict['k'] = int(self.ui.size_multiplier.text())
+        self.allDict['xBorder'] = int(self.ui.xBorder.text()) + 1
+        self.allDict['yBorder'] = int(self.ui.yBorder.text()) + 1
+        self.allDict['zBorder'] = int(self.ui.zBorder.text())
+        self.number_of_generations = int(self.ui.number_of_generations.text())
+
+        self.allDict['maxSpace'] = self.allDict['xBorder'] * self.allDict['yBorder'] * self.allDict['zBorder']
 
 
 if __name__ == '__main__':
     allDict = {
-        'k': 2,
+        'k': 4,
         'xl': 0, 'yw': 0, 'zh': 0,
-        'xBorder': 7,
-        'yBorder': 7,
-        'zBorder': 7,
+        'xBorder': 8,
+        'yBorder': 8,
+        'zBorder': 8,
         'maxSpace': 0,
 
         'parals': [],
@@ -151,11 +179,6 @@ if __name__ == '__main__':
 
         'allTranslations': {},
 
-        'number_of_iteration': 300,
-        'ind_number': 0,
-        'crossed_number': 0,
-        'selected_number': 0,
-        'mutation_probability': 0,
         'is_show_parals': False,
         'best_individual': [],
         'best_value': .0
@@ -166,6 +189,6 @@ if __name__ == '__main__':
 
     app = QtWidgets.QApplication([])
     application = mainMenu(allDict, allParals)
-    # application.show()
+    application.show()
 
     sys.exit(app.exec())

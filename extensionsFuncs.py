@@ -74,6 +74,7 @@ def printMatrix(matrixXY: np.array):
 
     print()
 
+
 def preparingForFF(self, isDecreasing):
     paral_dict = list([(paral, self.allParals[paral][0], self.allParals[paral][1], self.allParals[paral][2],
                         self.allParals[paral][0] * self.allParals[paral][1] * self.allParals[paral][2]) for paral in
@@ -84,4 +85,15 @@ def preparingForFF(self, isDecreasing):
     self.allDict['parals'] = list([paral[0] for paral in paral_dict])
     self.allDict['paral_dict'] = list(paral_dict)
 
-    # print('\n'.join(str(e) for e in paral_dict))
+
+def printAll(obj):
+    print('\n'.join(str(e) for e in obj))
+    print()
+
+
+def clearAll(self):
+    self.allDict['placedParals'] = list()
+    self.allDict['matrices'] = list()
+    self.allDict['matrixOfMatrices'] = list()
+    self.allDict['currentParal'] = 0
+    self.allDict['allTranslations'] = dict()

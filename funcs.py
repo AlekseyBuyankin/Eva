@@ -142,31 +142,45 @@ def makeParallelepiped(self, k, l, w, h):
     self.allParals[m1] = (l + k, w + k, h + k)
 
 
-def makeRandParallelepiped(self, k):
-    l = randint(0, k)
-    w = randint(0, k)
-    h = randint(0, k)
-    print('(' + str(l) + ', ' + str(w) + ', ' + str(h) + '),')
+def makeLarge(self, k):
+    l = randint(0, k + 1)
+    w = randint(0, k + 1)
+    h = randint(0, k + 1)
     makeParallelepiped(self, k, l, w, h)
 
-
-def randPopulation(self, k, n):
-    for _ in range(n):
-        makeRandParallelepiped(self, k)
+    return k * (l + w + h)
 
 
-def population(self, k):
+def makeSmall(self, k):
+    high = (k + 1) // 2
+    l = randint(0, high)
+    w = randint(0, high)
+    h = randint(0, high)
+    makeParallelepiped(self, k, l, w, h)
+
+    return k * (l + w + h)
+
+
+def randGenes(self, k):
+    parals_volume = 0
+    while parals_volume <= self.allDict['maxSpace']:
+        parals_volume += makeLarge(self, k)
+        parals_volume += makeSmall(self, k)
+    return parals_volume
+
+
+def genes(self, k):
     parals = [
         (0, 1, 1),
         (1, 2, 1),
         (1, 1, 2),
-        (1, 2, 1),
-        (2, 2, 1),
-        (2, 2, 1),
-        (0, 1, 1),
-        (1, 0, 0),
-        (0, 2, 1),
-        (1, 1, 0),
+        # (1, 2, 1),
+        # (2, 2, 1),
+        # (2, 2, 1),
+        # (0, 1, 1),
+        # (1, 0, 0),
+        # (0, 2, 1),
+        # (1, 1, 0),
         # (0, 0, 1),
         # (1, 0, 1),
         # (1, 0, 2),

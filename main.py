@@ -49,7 +49,6 @@ class mainMenu(QtWidgets.QMainWindow):
         self.ui.setupUi(self)
         self.allDict = allDict
         self.allParals = allParals
-        self.genes_number = 25
 
         movenment.center(self)
         self.setWindowTitle('Byankin Aleksey')

@@ -71,6 +71,9 @@ class mainMenu(QtWidgets.QMainWindow):
         self.ui.zBorder.setText('10')
         self.ui.number_of_generations.setText('10')
 
+        mainMenu.getAllData(self)
+        funcs.makeBorders(self)
+
     def textButton(self):
         if self.allDict['textBox']:
             extrafuncs.removeText(self)
@@ -124,6 +127,7 @@ class mainMenu(QtWidgets.QMainWindow):
         self.allDict['parals'] = []
 
         mainMenu.getAllData(self)
+        funcs.makeBorders(self)
 
         funcs.randGenes(self, self.allDict['k'])
         preparingForFF(self, False)
@@ -164,6 +168,8 @@ if __name__ == '__main__':
         'yBorder': 8,
         'zBorder': 8,
         'maxSpace': 0,
+
+        'borders': [],
 
         'parals': [],
         'paral_dict': [],

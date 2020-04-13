@@ -17,13 +17,6 @@ def makeSurface(self):
     g.translate(20, 20, 0)
     w.addItem(g)
 
-    # Add a grid2 to the view
-    # g = gl.GLGridItem()
-    # g.scale(2, 2, 2)
-    # g.setDepthValue(10)  # draw grid after surfaces since they may be translucent
-    # g.translate(-40, 20, 0)
-    # w.addItem(g)
-
     # Add x
     g = gl.GLGridItem()
     g.scale(2.1, 0, 0)
@@ -64,6 +57,92 @@ def makeSurface(self):
     extrafuncs.addText(self, 0, 0, 20, 'z 20')
     extrafuncs.addText(self, 0, 0, 30, 'z 30')
     extrafuncs.addText(self, 0, 0, 40, 'z 40')
+
+
+def makeBorders(self):
+    w = self.ui.gl
+
+    xBorder = self.allDict['xBorder'] - 1
+    yBorder = self.allDict['yBorder'] - 1
+    zBorder = self.allDict['zBorder']
+
+    borders = list(self.allDict['borders'])
+
+    if borders:
+        for border in borders:
+            w.removeItem(border)
+
+    # Add x
+    tx = xBorder / 2
+    ty = yBorder
+    scale = xBorder / 20
+
+    for tz in range(5):
+        g = gl.GLGridItem()
+        g.scale(scale, 0, 0)
+        g.translate(tx, ty, float('0.' + str(tz)))
+        g.setDepthValue(10)  # draw grid after surfaces since they may be translucent
+        w.addItem(g)
+        borders.append(g)
+
+    # Add y
+    tx = xBorder
+    ty = yBorder / 2
+    scale = yBorder / 20
+
+    for tz in range(5):
+        g = gl.GLGridItem()
+        g.scale(0, scale, 0)
+        g.translate(tx, ty, float('0.' + str(tz)))
+        g.setDepthValue(10)  # draw grid after surfaces since they may be translucent
+        w.addItem(g)
+        borders.append(g)
+
+    # Add z
+    tx = xBorder / 2
+    tz = zBorder
+    scale = xBorder / 20
+    n = 3
+
+    for ty in range(n):
+        g = gl.GLGridItem()
+        g.scale(scale, 0, 0)
+        g.translate(tx, float('0.' + str(ty % 10)), tz)
+        g.setDepthValue(10)  # draw grid after surfaces since they may be translucent
+        w.addItem(g)
+        borders.append(g)
+
+    y = yBorder - float('0.' + str(n - 1))
+    for ty in range(n):
+        g = gl.GLGridItem()
+        g.scale(scale, 0, 0)
+        g.translate(tx, y + float('0.' + str(ty % 10)), tz)
+        g.setDepthValue(10)  # draw grid after surfaces since they may be translucent
+        w.addItem(g)
+        borders.append(g)
+
+    ty = yBorder / 2
+    tz = zBorder
+    scale = yBorder / 20
+
+    for tx in range(n):
+        g = gl.GLGridItem()
+        g.scale(0, scale, 0)
+        g.translate(float('0.' + str(tx % 10)), ty, tz)
+        g.setDepthValue(10)  # draw grid after surfaces since they may be translucent
+        w.addItem(g)
+        borders.append(g)
+
+    y = xBorder - float('0.' + str(n - 1))
+    for tx in range(n):
+        g = gl.GLGridItem()
+        g.scale(0, scale, 0)
+        g.translate(y + float('0.' + str(tx % 10)), ty, tz)
+        g.setDepthValue(10)  # draw grid after surfaces since they may be translucent
+        w.addItem(g)
+        borders.append(g)
+
+    self.allDict['borders'] = borders
 
 
 # Убрать график с плоскости
